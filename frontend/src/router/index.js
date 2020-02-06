@@ -1,11 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import TaiquMain from "../views/taiqu/main";
-import GongdMain from "../views/gongdan/main";
-import GongjxMain from "../views/gongjx/main";
-import XuexiMain from "../views/xuexi/main";
+import HomeMain from "../views/home/main";
+import YekuoMain from "../views/yekuo/main";
 import WodeMain from "../views/wode/main";
+
+import Yewu from "../views/yekuo/yewu";
+import Kancha from "../views/yekuo/kancha";
+import Yanshou from "../views/yekuo/yanshou";
+import Czbiao from "../views/yekuo/czbiao";
+import Tsdian from "../views/yekuo/tsdian";
+import Kcinfo from "../views/yekuo/kancha/index";
+import KcProfile from "../views/yekuo/kancha/hedui/profile";
+import KcWarning from "../views/yekuo/kancha/warning";
+import KcHedui from "../views/yekuo/kancha/hedui";
 
 Vue.use(VueRouter)
 
@@ -14,23 +22,61 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'tqmain',
-    component: TaiquMain
+    name: 'home',
+    component: HomeMain
   },
   {
-    path: '/gongdan',
-    name: 'gondan',
-    component: GongdMain
-  },
-  {
-    path: '/gongjx',
-    name: 'gongjx',
-    component: GongjxMain
-  },
-  {
-    path: '/xuexi',
-    name: 'xuexi',
-    component: XuexiMain
+    path: '/yekuo',
+    name: 'yekuo',
+    component: YekuoMain,
+    children: [
+      {
+        path: '/yewu',
+        name: 'yewu',
+        component: Yewu
+      },
+      {
+        path: '/kancha',
+        name: 'kancha',
+        component: Kancha
+      },
+      {
+        path: '/yanshou',
+        name: 'yanshou',
+        component: Yanshou
+      },
+      {
+        path: '/czbiao',
+        name: 'czbiao',
+        component: Czbiao
+      },
+      {
+        path: '/tsdian',
+        name: 'tsdian',
+        component: Tsdian
+      },
+      {
+        path: '/kcinfo/:id',
+        name: 'kcinfo',
+        component: Kcinfo,
+        children: [{
+          path: '/kcprofile/:id',
+          name: 'kcprofile',
+          component: KcProfile
+        },
+        {
+          path: '/kcwarning',
+          name: 'kcwarning',
+          component: KcWarning
+        },
+        {
+          path: '/kchedui',
+          name: 'kchedui',
+          component: KcHedui
+        },
+        ]
+      },
+    ]
   },
   {
     path: '/wode',
