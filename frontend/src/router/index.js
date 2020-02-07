@@ -14,6 +14,9 @@ import Kcinfo from "../views/yekuo/kancha/index";
 import KcProfile from "../views/yekuo/kancha/hedui/profile";
 import KcWarning from "../views/yekuo/kancha/warning";
 import KcHedui from "../views/yekuo/kancha/hedui";
+import KcContact from "../views/yekuo/kancha/hedui/contact";
+import KcFeikong from "../views/yekuo/kancha/hedui/feikong";
+import KcFinancial from "../views/yekuo/kancha/hedui/financial";
 
 Vue.use(VueRouter)
 
@@ -73,6 +76,21 @@ const routes = [
           path: '/kchedui',
           name: 'kchedui',
           component: KcHedui
+        },
+        {
+          path: '/kccontact',
+          name: 'kccontact',
+          component: KcContact
+        },
+        {
+          path: '/kcfeikong',
+          name: 'kcfeikong',
+          component: KcFeikong
+        },
+        {
+          path: '/kcfinancial',
+          name: 'kcfinancial',
+          component: KcFinancial
         },
         ]
       },
