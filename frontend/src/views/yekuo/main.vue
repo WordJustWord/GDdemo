@@ -3,36 +3,16 @@
     <div class="header">
       <van-nav-bar
         :title="this.title"
-        left-text="首页"
+        left-text="返回"
         left-arrow
-        @click-left="onClickLeft"
+        right-text="回首页"
+        @click-right="()=>{this.$router.push('/')}"
+        @click-left="()=>{this.$router.go(-1)}"
         :fixed="true"
       />
     </div>
     <div class="content">
       <router-view></router-view>
-      <!-- <van-cell-group>
-        <van-cell title="业务受理" />
-      </van-cell-group>
-      <van-grid>
-        <van-grid-item icon="photo-o" to="/yewu" text="信息录入" />
-        <van-grid-item icon="photo-o" text="生成表单" />
-        <van-grid-item icon="photo-o" text="模版管理" />
-      </van-grid>
-      <van-cell-group>
-        <van-cell title="现场勘查" />
-      </van-cell-group>
-      <van-grid>
-        <van-grid-item icon="photo-o" text="待办中" />
-        <van-grid-item icon="photo-o" text="已完成" />
-      </van-grid>
-      <van-cell-group>
-        <van-cell title="竣工验收" />
-      </van-cell-group>
-      <van-grid>
-        <van-grid-item icon="photo-o" text="待办中" />
-        <van-grid-item icon="photo-o" text="已完成" />
-      </van-grid>-->
     </div>
     <div class="footer">
       <van-tabbar v-model="selected">
@@ -65,9 +45,6 @@ export default {
     };
   },
   methods: {
-    onClickLeft() {
-      this.$router.push("/");
-    },
     setTitle(title) {
       this.title = title;
     }

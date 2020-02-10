@@ -11,7 +11,7 @@
         :to="path+'/'+item.id"
       >
         <template class="list-label" slot="label">
-          <p>编号：{{item.type == 1?"低压非居民增容":"低压非居民新装"}}</p>
+          <p>类型：{{item.type == 1?"高压增容":"低压非居民新装"}}</p>
           <p>地址：{{item.address}}</p>
         </template>
       </van-cell>
