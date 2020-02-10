@@ -65,7 +65,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 
 const jldxzcols = [{ text: "结算", key: 1 }];
 const jldflcols = [{ text: "用电客户", key: 1 }];

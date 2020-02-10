@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-import formatDate from "../../../utils/formatdate";
+import formatDate from "../utils/formatdate";
 export default {
   props: ["label", "placeholder", "datetype", "required", "patten"],
   data() {

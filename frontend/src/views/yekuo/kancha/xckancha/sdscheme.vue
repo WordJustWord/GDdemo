@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../components/picker";
+import Picker from "../../../../components/picker";
 
 const dqsddcols = [
   { text: "受电点一", key: 1 },

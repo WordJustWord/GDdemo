@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../components/picker";
+import Picker from "../../../../components/picker";
 const dylxcols = [{ text: "公变", key: 1 }];
 const dyxzcols = [{ text: "主供电源", key: 1 }];
 const dyxscols = [{ text: "单相电源", key: 1 }];

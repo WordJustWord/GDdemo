@@ -2,7 +2,7 @@
   <div class="yekuo-yanshou">
     <van-tabs v-model="active">
       <van-tab title="待办中">
-        <GdanList :data="this.progressData"></GdanList>
+        <GdanList :data="this.progressData" path="/ysinfo"></GdanList>
       </van-tab>
       <van-tab title="已完成">
         <GdanList></GdanList>

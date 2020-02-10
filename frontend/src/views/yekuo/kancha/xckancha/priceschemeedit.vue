@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../components/picker";
+import Picker from "../../../../components/picker";
 
 const ydlbcols = [{ text: "城镇居民生活用电", key: 1 }];
 const zxfgbzcols = [

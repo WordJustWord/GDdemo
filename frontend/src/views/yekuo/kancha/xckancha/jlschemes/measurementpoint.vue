@@ -18,8 +18,8 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
-import TimePicker from "../../../components/timepicker";
+import Picker from "../../../../../components/picker";
+import TimePicker from "../../../../../components/timepicker";
 
 const zllxcols = [{ text: "暂无", key: 1 }];
 export default {

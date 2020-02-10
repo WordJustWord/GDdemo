@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../components/picker";
+import Picker from "../../../../components/picker";
 const gddycols = [{ text: "暂无", key: "1" }];
 const fhxzcols = [{ text: "暂无", key: "1" }];
 const yhflcols = [{ text: "暂无", key: "1" }];

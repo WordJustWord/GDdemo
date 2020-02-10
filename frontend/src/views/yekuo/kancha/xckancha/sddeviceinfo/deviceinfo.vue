@@ -29,8 +29,8 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
-import TimePicker from "../../../components/timepicker";
+import Picker from "../../../../../components/picker";
+import TimePicker from "../../../../../components/timepicker";
 
 const xlcols = [{ text: "10Kv", key: 1 }];
 const tqcols = [{ text: "暂无", key: 1 }];

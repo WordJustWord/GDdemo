@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 
 const ytdmcols = [{ text: "售电侧结算", key: 1 }];
 const bgsmcols = [{ text: "新增", key: 1 }];

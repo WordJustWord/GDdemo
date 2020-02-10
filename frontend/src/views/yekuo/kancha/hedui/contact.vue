@@ -1,13 +1,7 @@
 <template>
   <div class="hedui-contact">
     <div class="btn-group btn-hor-flex">
-      <van-button
-        type="default"
-        size="small"
-        @click="()=>{this.$router.go(-1)}"
-        icon="arrow-left"
-      >返回</van-button>
-      <van-button type="info" size="small" icon="plus">新增</van-button>
+      <van-button type="info" block size="small" icon="plus">新增</van-button>
     </div>
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
       <van-cell

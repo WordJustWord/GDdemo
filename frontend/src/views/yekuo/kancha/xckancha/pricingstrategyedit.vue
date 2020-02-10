@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../components/picker";
+import Picker from "../../../../components/picker";
 const djcllxcols = [{ text: "两部制", key: 1 }];
 const jbdfjsfscols = [{ text: "不计算", key: 1 }];
 const glyskhfscols = [{ text: "标准考核", key: 1 }];

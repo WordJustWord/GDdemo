@@ -85,8 +85,8 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
-import TimePicker from "../../../components/timepicker";
+import Picker from "../../../../../components/picker";
+import TimePicker from "../../../../../components/timepicker";
 
 const eccdycols = [{ text: "暂无", key: 1 }];
 const yccdycols = [{ text: "暂无", key: 1 }];

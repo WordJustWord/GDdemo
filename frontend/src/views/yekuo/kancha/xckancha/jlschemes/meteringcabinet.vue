@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 
 const cllxcols = [{ text: "暂无", key: 1 }];
 const lbcols = [{ text: "单体表箱", key: 1 }];

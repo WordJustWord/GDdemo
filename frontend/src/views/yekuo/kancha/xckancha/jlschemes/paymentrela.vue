@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 
 const jfgxcols = [{ text: "主分", key: 1 }];
 const fjldbhcols = [{ text: "暂无", key: 1 }];

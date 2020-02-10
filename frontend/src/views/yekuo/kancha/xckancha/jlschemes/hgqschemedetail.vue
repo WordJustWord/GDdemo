@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 const hgqlbcols = [{ text: "电流互感器", key: 1 }];
 const hgqlxcols = [{ text: "高压TA", key: 1 }];
 const dyhgqbbcols = [{ text: "10/5", key: 1 }];

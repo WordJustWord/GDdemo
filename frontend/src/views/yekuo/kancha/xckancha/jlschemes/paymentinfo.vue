@@ -67,7 +67,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 
 const yhdjcols = [{ text: "大工业非分时", key: 1 }];
 const dbkjbzcols = [

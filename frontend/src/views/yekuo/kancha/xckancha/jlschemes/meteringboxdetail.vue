@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../../components/picker";
+import Picker from "../../../../../components/picker";
 
 const bgsmcols = [{ text: "新增", key: 1 }];
 const lbcols = [{ text: "单体表箱", key: 1 }];

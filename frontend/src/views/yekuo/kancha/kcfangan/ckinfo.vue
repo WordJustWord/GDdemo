@@ -58,7 +58,7 @@
   </div>
 </template>
 <script>
-import Picker from "../../components/picker";
+import Picker from "../../../../components/picker";
 import formatDate from "../../../../utils/formatdate";
 const ywwycols = [
   { text: "有", key: "1" },
