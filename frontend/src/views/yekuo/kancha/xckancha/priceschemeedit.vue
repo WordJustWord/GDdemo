@@ -23,8 +23,6 @@
       <van-button type="info" block :square="true">保存</van-button>
       <div class="btn-d"></div>
       <van-button type="danger" block :square="true">删除</van-button>
-      <div class="btn-d"></div>
-      <van-button type="default" block @click="()=>{this.$router.go(-1)}" :square="true">返回</van-button>
     </div>
   </div>
 </template>

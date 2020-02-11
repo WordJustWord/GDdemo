@@ -24,10 +24,15 @@ const dataList = [];
 export default {
   data() {
     return {
+      loading: false,
+      finished: true,
       data: {
         dataList: dataList
       }
     };
+  },
+  methods: {
+    onLoad() {}
   }
 };
 </script>

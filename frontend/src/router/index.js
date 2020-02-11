@@ -4,6 +4,8 @@ import VueRouter from 'vue-router';
 import HomeMain from "../views/home/main";
 import YekuoMain from "../views/yekuo/main";
 import WodeMain from "../views/wode/main";
+import Signin from "../views/login/signin";
+import Signup from "../views/login/signup";
 
 import Yewu from "../views/yekuo/yewu";
 import Kancha from "../views/yekuo/kancha";
@@ -14,6 +16,9 @@ import Tsdian from "../views/yekuo/tsdian";
 import kancha from "./kancha";
 import yanshou from "./yanshou";
 import czbiao from "./czbiao";
+import tsdian from "./tsdian";
+
+import NotFound from "../views/error/404";
 
 Vue.use(VueRouter)
 
@@ -26,9 +31,15 @@ const routes = [
     component: HomeMain
   },
   {
+    path: '/signin',
+    name: 'signin',
+    component: Signin
+  },
+  {
     path: '/yekuo',
     name: 'yekuo',
     component: YekuoMain,
+    redirect: { name: "yewu" },
     children: [
       {
         path: '/yewu',
@@ -38,7 +49,8 @@ const routes = [
       {
         path: '/kancha',
         name: 'kancha',
-        component: Kancha
+        component: Kancha,
+        meta: { requireAuth: true }
       },
       {
         path: '/yanshou',
@@ -57,13 +69,24 @@ const routes = [
       },
       ...kancha,
       ...yanshou,
-      ...czbiao
+      ...czbiao,
+      ...tsdian,
     ]
   },
   {
     path: '/wode',
     name: 'wode',
     component: WodeMain
+  },
+  {
+    path: '*',
+    name: '',
+    redirect: { name: "notfound" }
+  },
+  {
+    path: '/404',
+    name: 'notfound',
+    component: NotFound
   }
 ]
 

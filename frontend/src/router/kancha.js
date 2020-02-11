@@ -161,7 +161,7 @@ const routers = [
         },
         {
             path: '/jlschemetabs',
-            name: 'jlscheme',
+            name: 'jlschemetabs',
             component: XcJlschemeTabs
         },
         {
