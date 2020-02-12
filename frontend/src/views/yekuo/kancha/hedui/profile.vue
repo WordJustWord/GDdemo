@@ -1,8 +1,8 @@
 <template>
   <div class="profile">
-    <van-field v-model="data.num" label="申请编号" placeholder="请输入申请编号" />
+    <van-field v-model="data.appNum" :readonly="readonly" label="申请编号" placeholder="请输入申请编号" />
     <van-field
-      v-model="data.ctime"
+      v-model="data.appDate"
       label="受理日期"
       @click="()=>{
       this.showCtime = true}"
@@ -10,8 +10,8 @@
       :readonly="true"
       required
     />
-    <van-field v-model="data.worktype" required label="业务类型" placeholder="请输入业务类型" />
-    <van-field v-model="data.usernum" required label="用户编号" placeholder="请输入用户编号" />
+    <van-field v-model="data.businessType" required label="业务类型" placeholder="请输入业务类型" />
+    <van-field v-model="data.clientNum" required label="用户编号" placeholder="请输入用户编号" />
     <van-field
       v-model="data.mode"
       label="申请方式"
@@ -20,7 +20,7 @@
       :readonly="true"
       required
     />
-    <van-field v-model="data.unit" required label="供电单位" placeholder="请输入供电单位" />
+    <van-field v-model="data.provideUnit" required label="供电单位" placeholder="请输入供电单位" />
     <van-field
       v-model="data.idcardtype"
       label="证件类型"
@@ -28,9 +28,9 @@
       placeholder="请选择证件类型"
       :readonly="true"
     />
-    <van-field v-model="data.realname" label="证件持有人姓名" placeholder="请输入证件持有人姓名" />
-    <van-field v-model="data.idnum" label="证件号码" placeholder="请输入证件号码" />
-    <van-field v-model="data.username" label="用户名称" placeholder="请输入用户名称" />
+    <van-field v-model="data.idCardOwner" label="证件持有人姓名" placeholder="请输入证件持有人姓名" />
+    <van-field v-model="data.idCardNum" label="证件号码" placeholder="请输入证件号码" />
+    <van-field v-model="data.clientName" label="用户名称" placeholder="请输入用户名称" />
     <van-field
       v-model="data.etype"
       label="用电类别"
@@ -38,16 +38,16 @@
       placeholder="请选择用电类别"
       :readonly="true"
     />
-    <van-field v-model="data.eaddr" label="用电地址" placeholder="请输入用电地址" />
-    <van-field v-model="data.wtype" label="行业分类" placeholder="请输入行业分类" />
+    <van-field v-model="data.powerUseAddr" label="用电地址" placeholder="请输入用电地址" />
+    <van-field v-model="data.industryType" label="行业分类" placeholder="请输入行业分类" />
     <van-field
-      v-model="data.voltage"
+      v-model="data.voltageVal"
       @click="()=>{this.showVoltage = true}"
       label="供电电压"
       placeholder="请选择供电电压"
       :readonly="true"
     />
-    <van-field v-model="data.original" label="原有合同量" placeholder="请输入原有合同量kVA" />
+    <van-field v-model="data.originalVolume" label="原有合同量" placeholder="请输入原有合同量kVA" />
     <van-field
       v-model="data.cetype"
       label="改类后用电类别"
@@ -69,7 +69,7 @@
     </van-cell-group>
     <van-uploader />
     <div class="btn-group">
-      <van-button type="primary" block :square="true">保存</van-button>
+      <van-button type="info" @click="onSave" block :square="true">保存</van-button>
     </div>
     <van-popup v-model="showCtime" position="bottom">
       <van-datetime-picker
@@ -125,10 +125,20 @@
         title="供电电压"
       />
     </van-popup>
+    <van-overlay :show="loading">
+      <div class="loading">
+        <van-loading />
+      </div>
+    </van-overlay>
   </div>
 </template>
 <script>
+import { Toast } from "vant";
 import formatDate from "../../../../utils/formatdate";
+import {
+  getApplicationInfo,
+  saveApplicationInfo
+} from "../../../../request/apis/SqxinxiApi";
 const idTypeCols = [
   { text: "身份证", key: 1 },
   { text: "护照", key: 2 },
@@ -156,64 +166,118 @@ export default {
       eTypeCols: eTypeCols,
       ceTypeCols: ceTypeCols,
       voltageCols: voltageCols,
+      readonly: false,
+      loading: false,
       data: {
-        num: "",
-        ctime: "",
-        worktype: "",
-        usernum: "",
+        id: "",
+        appNum: "",
+        appDate: "",
+        businessType: "",
+        clientNum: "",
         mode: "",
-        modekey: 0,
-        unit: "",
+        appType: 0,
+        provideUnit: "",
         idcardtype: "",
-        idcardtypekey: 0,
-        realname: "",
-        idnum: "",
-        username: "",
+        clientIdCardType: 0,
+        idCardOwner: "",
+        idCardNum: "",
+        clientName: "",
         etype: "",
-        etypekey: 0,
-        eaddr: "",
-        wtype: "",
-        voltage: "",
-        voltagekey: 0,
-        original: "",
+        powerUseType: 0,
+        powerUseAddr: "",
+        industryType: "",
+        voltageVal: "",
+        voltage: 0,
+        originalVolume: "",
         cetype: "",
-        cetypekey: 0,
+        afterChangePowerUseType: 0,
         comments: ""
       }
     };
   },
   methods: {
     confirmCtime() {
-      this.data.ctime = formatDate(this.tempCtime, "yyyy/MM/dd");
+      this.data.appDate = formatDate(this.tempCtime, "yyyy/MM/dd");
       this.showCtime = false;
     },
     onModeConfirm(value) {
       this.data.mode = value.text;
-      this.data.modekey = value.key;
+      this.data.appType = value.key;
       this.showMode = false;
     },
     onidTypeConfirm(value) {
       this.data.idcardtype = value.text;
-      this.data.idcardtypekey = value.key;
+      this.data.clientIdCardType = value.key;
       this.showIdCardType = false;
     },
     onETypeConfirm(value) {
       this.data.etype = value.text;
-      this.data.etypekey = value.key;
+      this.data.powerUseType = value.key;
       this.showEType = false;
     },
     onCeTypeConfirm(value) {
       this.data.cetype = value.text;
-      this.data.cetypekey = value.key;
+      this.data.afterChangePowerUseType = value.key;
       this.showCetype = false;
     },
     onVoltageConfirm(value) {
-      this.data.voltage = value.text;
-      this.data.voltagekey = value.key;
+      this.data.voltageVal = value.text;
+      this.data.voltage = value.key;
       this.showVoltage = false;
+    },
+    onSave() {
+      this.loading = true;
+      saveApplicationInfo(this.$route.params.id, this.data);
+      Toast.success("保存成功！");
+      this.loading = false;
+    },
+    findText(columns, target) {
+      return columns.filter(x => x.key == target);
     }
   },
-  computed: {}
+  created() {
+    this.loading = true;
+    getApplicationInfo(this.$route.params.id).then(res => {
+      if (res.status === 200) {
+        if (res.data.code === 1) {
+          let dto = res.data.data;
+          this.readonly = true;
+          this.data.appNum = dto.appNum;
+          this.data.appDate = dto.appDate;
+          this.data.businessType = dto.businessType;
+          this.data.clientNum = dto.clientNum;
+          this.data.appType = dto.appType;
+          this.data.mode = this.findText(modeColumns, dto.appType)[0].text;
+          this.data.provideUnit = dto.provideUnit;
+          this.data.clientIdCardType = dto.clientIdCardType;
+          this.data.idcardtype = this.findText(
+            idTypeCols,
+            dto.clientIdCardType
+          )[0].text;
+          this.data.idCardOwner = dto.idCardOwner;
+          this.data.idCardNum = dto.idCardNum;
+          this.data.clientName = dto.clientName;
+          this.data.powerUseType = dto.powerUseType;
+          this.data.etype = this.findText(eTypeCols, dto.powerUseType)[0].text;
+          this.data.powerUseAddr = dto.powerUseAddr;
+          this.data.industryType = dto.industryType;
+          this.data.voltage = dto.voltage;
+          this.data.voltageVal = this.findText(
+            voltageCols,
+            dto.voltage
+          )[0].text;
+          this.data.originalVolume = dto.originalVolume;
+          this.data.afterChangePowerUseType = dto.afterChangePowerUseType;
+          this.data.cetype = this.findText(
+            ceTypeCols,
+            dto.afterChangePowerUseType
+          )[0].text;
+          this.data.comments = dto.comments;
+          this.loading = false;
+        }
+      }
+    });
+  }
 };
 </script>
 <style lang="scss">
@@ -222,5 +286,11 @@ export default {
   .btn-d {
     padding: 2px 0;
   }
+}
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
