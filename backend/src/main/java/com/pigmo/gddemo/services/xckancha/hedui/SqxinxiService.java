@@ -7,20 +7,19 @@ import com.pigmo.gddemo.dto.ApplyInfoDto;
 import com.pigmo.gddemo.entities.ApplicationEntity;
 import com.pigmo.gddemo.entities.ClientEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class SqxinxiService implements Sqxinxi {
 
     private final ApplicationInfoRepository applicationInfoRepository;
@@ -50,7 +49,6 @@ public class SqxinxiService implements Sqxinxi {
     }
 
     @Override
-    @Transactional
     public int addNewApplicationInfo(Long appId, ApplyInfoDto dto) {
         ApplicationEntity applicationEntity = null;
         ClientEntity clientEntity = null;

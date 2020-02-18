@@ -2,14 +2,11 @@ package com.pigmo.gddemo.controllers;
 
 import com.pigmo.gddemo.dto.ApplyInfoDto;
 import com.pigmo.gddemo.services.xckancha.hedui.SqxinxiService;
+import com.pigmo.gddemo.services.xckancha.scbiaodan.ScbiaodanService;
 import com.pigmo.gddemo.utils.NormalResult;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -18,6 +15,8 @@ public class ApplicationController {
 
     @Autowired
     private SqxinxiService sqxinxiService;
+    @Autowired
+    private ScbiaodanService scbiaodanService;
 
     @RequestMapping(value = "/ApplicationInfo/{id}",method = RequestMethod.GET)
     public NormalResult getApplicationInfo(@PathVariable String id) {
@@ -32,5 +31,11 @@ public class ApplicationController {
             return NormalResult.ok();
         }
         return NormalResult.ok(200,"","数据存入失败！");
+    }
+
+    @GetMapping("/scbiaodan")
+    public NormalResult getBiaodan(){
+        scbiaodanService.testDoc();
+        return NormalResult.ok();
     }
 }
