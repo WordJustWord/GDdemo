@@ -10,3 +10,5 @@ spring:
    ddl-auto: validate
 server:
  port: 8081
+my:
+ outpath: /Users/jchen/Documents/file
