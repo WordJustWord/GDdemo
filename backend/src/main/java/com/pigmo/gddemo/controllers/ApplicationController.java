@@ -19,13 +19,13 @@ public class ApplicationController {
     @Autowired
     private ScbiaodanService scbiaodanService;
 
-    @RequestMapping(value = "/ApplicationInfo/{id}",method = RequestMethod.GET)
+    @GetMapping(value = "/ApplicationInfo/{id}")
     public NormalResult getApplicationInfo(@PathVariable String id) {
         ApplyInfoDto dto = sqxinxiService.getApplicationInfo(Long.valueOf(id));
         return NormalResult.ok(dto);
     }
 
-    @RequestMapping(value = "/ApplicationInfo/{id}",method = RequestMethod.POST)
+    @PostMapping(value = "/ApplicationInfo/{id}")
     public NormalResult addApplicationInfo(@PathVariable String id, ApplyInfoDto dto){
         int res = sqxinxiService.addNewApplicationInfo(Long.valueOf(id),dto);
         if (res == 1){

@@ -45,13 +45,58 @@
 </template>
 <script>
 import Picker from "../../../../components/picker";
-const gddycols = [{ text: "暂无", key: "1" }];
-const fhxzcols = [{ text: "暂无", key: "1" }];
-const yhflcols = [{ text: "暂无", key: "1" }];
-const ydlbcols = [{ text: "暂无", key: "1" }];
+const gddycols = [
+  { text: "220v", key: "1" },
+  { text: "10kv", key: "2" },
+  { text: "380v", key: "3" },
+  { text: "35kv", key: "4" },
+  { text: "110kv", key: "5" },
+  { text: "220kv", key: "6" },
+  { text: "500kv", key: "7" }
+];
+const fhxzcols = [
+  { text: "一类", key: "1" },
+  { text: "二类", key: "2" },
+  { text: "三类", key: "3" }
+];
+const yhflcols = [
+  { text: "高压", key: "1" },
+  { text: "低压居民", key: "2" },
+  { text: "低压非居民", key: "3" },
+  { text: "考核", key: "4" }
+];
+const ydlbcols = [
+  { text: "考核", key: "1" },
+  { text: "大工业用电", key: "2" },
+  { text: "大工业中小化肥", key: "3" },
+  { text: "大工业其他优待", key: "4" },
+  { text: "居民生活用电", key: "5" },
+  { text: "乡村居民生活用电", key: "6" },
+  { text: "城镇居民生活用电", key: "7" },
+  { text: "中小学教学用电", key: "8" },
+  { text: "农业生产用电", key: "9" },
+  { text: "农业排灌", key: "10" },
+  { text: "贫困县农业排灌用电", key: "11" },
+  { text: "非居民照明", key: "12" },
+  { text: "非工业", key: "13" },
+  { text: "普通工业", key: "14" },
+  { text: "普通工业中小化肥", key: "15" },
+  { text: "商业用电", key: "16" },
+  { text: "趸售大工业", key: "17" },
+  { text: "趸售普通工业", key: "18" },
+  { text: "趸售非居民", key: "19" },
+  { text: "趸售居民生活用电", key: "20" },
+  { text: "趸售农业生产用电", key: "21" },
+  { text: "趸售商业用电", key: "22" },
+  { text: "大用户直购电", key: "23" }
+];
 const sfkgdbgcols = [{ text: "暂无", key: "1" }];
 const zgbzcols = [{ text: "暂无", key: "1" }];
-const sfygccols = [{ text: "暂无", key: "1" }];
+const sfygccols = [
+  { text: "有受电工程（用户接户线工程）无配套工程", key: "1" },
+  { text: "有配套工程无受电工程（用户接户线工程）", key: "2" },
+  { text: "有受电工程（用户接户线工程）有配套工程", key: "3" }
+];
 const hyflcols = [{ text: "暂无", key: "1" }];
 const qdsjcols = [{ text: "暂无", key: "1" }];
 const sfyhdjcols = [{ text: "暂无", key: "1" }];
