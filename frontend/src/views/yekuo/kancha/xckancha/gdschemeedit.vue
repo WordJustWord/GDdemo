@@ -60,13 +60,52 @@
 </template>
 <script>
 import Picker from "../../../../components/picker";
-const dylxcols = [{ text: "公变", key: 1 }];
-const dyxzcols = [{ text: "主供电源", key: 1 }];
-const dyxscols = [{ text: "单相电源", key: 1 }];
-const gddycols = [{ text: "220v", key: 1 }];
-const yxfscols = [{ text: "冷备", key: 1 }];
-const jxfscols = [{ text: "架空", key: 1 }];
-const bhfscols = [{ text: "10Kv及以上高压客户开关保护", key: 1 }];
+const dylxcols = [
+  { text: "公变", key: 1 },
+  { text: "专变", key: 2 },
+  { text: "共用专变", key: 3 },
+  { text: "专线", key: 4 }
+];
+const dyxzcols = [
+  { text: "主供电源", key: 1 },
+  { text: "备用电源", key: 2 },
+  { text: "保安电源", key: 3 }
+];
+const dyxscols = [
+  { text: "单相电源", key: 1 },
+  { text: "三相电源", key: 2 }
+];
+const gddycols = [
+  { text: "10kV", key: 1 },
+  { text: "0.4kV", key: 2 },
+  { text: "35kV", key: 3 },
+  { text: "110kV", key: 4 },
+  { text: "220kV", key: 5 },
+  { text: "500kV", key: 6 }
+];
+const yxfscols = [
+  { text: "常用互为备用", key: 1 },
+  { text: "冷备", key: 2 },
+  { text: "热备", key: 3 },
+  { text: "其他", key: 4 }
+];
+const jxfscols = [
+  { text: "架空", key: 1 },
+  { text: "电缆直埋", key: 2 },
+  { text: "电缆架空", key: 3 },
+  { text: "电缆桥架", key: 4 },
+  { text: "电缆隧道", key: 5 },
+  { text: "电缆管井", key: 6 },
+  { text: "电缆架空混合", key: 7 },
+  { text: "其它", key: 8 }
+];
+const bhfscols = [
+  { text: "10kV及以上高压客户开关保护（客户侧、电源侧)", key: 1 },
+  { text: "10kV及以上高压客户自落熔丝保护（电源侧)", key: 2 },
+  { text: "低压客户开关保护（客户侧)", key: 3 },
+  { text: "低压客户熔丝（电源侧)", key: 4 },
+  { text: "其它", key: 5 }
+];
 const fjkgdlqeddycols = [{ text: "交流3Kv", key: 1 }];
 const bhlxcols = [{ text: "反时限过流保护", key: 1 }];
 const cqfjdcols = [{ text: "暂无", key: 1 }];

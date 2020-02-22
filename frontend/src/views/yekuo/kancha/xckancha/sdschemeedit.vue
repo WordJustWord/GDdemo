@@ -59,15 +59,39 @@
 <script>
 import Picker from "../../../../components/picker";
 
-const sddlxcols = [{ text: "柱式变", key: 1 }];
-const dysmcols = [{ text: "多电源", key: 1 }];
-const dylsfscols = [{ text: "电气联锁", key: 1 }];
-const dyqhfscols = [{ text: "手动", key: 1 }];
+const sddlxcols = [
+  { text: "柱式变", key: 1 },
+  { text: "箱式变", key: 2 },
+  { text: "地埋变", key: 3 },
+  { text: "开关站", key: 4 },
+  { text: "配电站", key: 5 },
+  { text: "变电站", key: 6 }
+];
+const dysmcols = [
+  { text: "单电源", key: 1 },
+  { text: "双电源", key: 2 },
+  { text: "多电源", key: 3 }
+];
+const dylsfscols = [
+  { text: "电气联锁", key: 1 },
+  { text: "机械联锁", key: 2 },
+  { text: "其他联锁", key: 3 }
+];
+const dyqhfscols = [
+  { text: "手动", key: 1 },
+  { text: "自动", key: 2 }
+];
 const sfybydycols = [
   { text: "是", key: 1 },
   { text: "否", key: 0 }
 ];
-const zbdybsfscols = [{ text: "机械", key: 1 }];
+const zbdybsfscols = [
+  { text: "九线闸", key: 1 },
+  { text: "电子", key: 2 },
+  { text: "电磁", key: 3 },
+  { text: "电子", key: 4 },
+  { text: "其它", key: 5 }
+];
 const bgsmcols = [{ text: "新增", key: 1 }];
 
 export default {

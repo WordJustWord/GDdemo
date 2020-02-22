@@ -1,8 +1,10 @@
 package com.pigmo.gddemo.services.xckancha.scbiaodan;
 
-import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.*;
+import com.itextpdf.text.pdf.AcroFields;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
 import com.pigmo.gddemo.dto.ApplyInfoDto;
 import com.pigmo.gddemo.services.xckancha.hedui.SqxinxiService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,10 +18,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -33,7 +37,7 @@ public class ScbiaodanService {
 
 
     public void testDoc() {
-        String filename = "/" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")) + Instant.ofEpochMilli(4) + ".pdf";
+        String filename = "/kancha-doc.pdf";
         Resource resource = new ClassPathResource("/file/ywbd.pdf");
         InputStream is = null;
         FileOutputStream out = null;
@@ -76,7 +80,7 @@ public class ScbiaodanService {
         Map<String, String> map = new HashMap();
         ApplyInfoDto info = sqxinxiService.getApplicationInfo(id);
         if (info != null) {
-            map.put("u1", Instant.ofEpochMilli(8).toString());
+            map.put("u1", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddhhmmss")));
             map.put("u2", info.getAppNum());
             map.put("u3", info.getClientName());
             map.put("u4", "测试联系人");
@@ -89,7 +93,7 @@ public class ScbiaodanService {
             map.put("u11", "438");
             map.put("u12", "测试备注");
             map.put("u13", String.valueOf(LocalDate.now().getYear()));
-            map.put("u14", String.valueOf(LocalDate.now().getMonth()));
+            map.put("u14", String.valueOf(LocalDate.now().getMonth().getValue()));
             map.put("u15", String.valueOf(LocalDate.now().getDayOfMonth()));
             map.put("u16", info.getPowerUseType().toString());
             map.put("u17", "√");

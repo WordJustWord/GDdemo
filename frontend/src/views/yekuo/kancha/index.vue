@@ -5,7 +5,7 @@
       <van-tab title="结果核对" to="/kchedui"></van-tab>
       <van-tab title="勘查方案" to="/kcfangan"></van-tab>
       <van-tab title="现场勘查" to="/xckancha"></van-tab>
-      <van-tab title="生成表单"></van-tab>
+      <van-tab title="生成表单" to="/biaodan/1"></van-tab>
       <van-tab title="模版管理" to="/templates"></van-tab>
     </van-tabs>
     <router-view></router-view>

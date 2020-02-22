@@ -29,12 +29,41 @@
 <script>
 import Picker from "../../../../components/picker";
 
-const ydlbcols = [{ text: "城镇居民生活用电", key: 1 }];
+const ydlbcols = [
+  { text: "考核", key: "1" },
+  { text: "大工业用电", key: "2" },
+  { text: "大工业中小化肥", key: "3" },
+  { text: "大工业其他优待", key: "4" },
+  { text: "居民生活用电", key: "5" },
+  { text: "乡村居民生活用电", key: "6" },
+  { text: "城镇居民生活用电", key: "7" },
+  { text: "中小学教学用电", key: "8" },
+  { text: "农业生产用电", key: "9" },
+  { text: "农业排灌", key: "10" },
+  { text: "贫困县农业排灌用电", key: "11" },
+  { text: "非居民照明", key: "12" },
+  { text: "非工业", key: "13" },
+  { text: "普通工业", key: "14" },
+  { text: "普通工业中小化肥", key: "15" },
+  { text: "商业用电", key: "16" },
+  { text: "趸售大工业", key: "17" },
+  { text: "趸售普通工业", key: "18" },
+  { text: "趸售非居民", key: "19" },
+  { text: "趸售居民生活用电", key: "20" },
+  { text: "趸售农业生产用电", key: "21" },
+  { text: "趸售商业用电", key: "22" },
+  { text: "大用户直购电", key: "23" }
+];
 const zxfgbzcols = [
   { text: "是", key: 1 },
   { text: "否", key: 0 }
 ];
-const glysbzcols = [{ text: "不考核", key: 1 }];
+const glysbzcols = [
+  { text: "不考核", key: 1 },
+  { text: "考核标准0.8", key: 2 },
+  { text: "考核标准0.85", key: 3 },
+  { text: "考核标准0.9", key: 4 }
+];
 const bgsmcols = [{ text: "新增", key: 1 }];
 export default {
   data() {

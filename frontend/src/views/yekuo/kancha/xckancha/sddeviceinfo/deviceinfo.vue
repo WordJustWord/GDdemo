@@ -35,13 +35,31 @@ import TimePicker from "../../../../../components/timepicker";
 const xlcols = [{ text: "10Kv", key: 1 }];
 const tqcols = [{ text: "暂无", key: 1 }];
 const bgsmcols = [{ text: "新装", key: 1 }];
-const sblxcols = [{ text: "暂无", key: 1 }];
+const sblxcols = [
+  { text: "变压器", key: 1 },
+  { text: "高压电机", key: 2 }
+];
 const sbxhcols = [{ text: "暂无", key: 1 }];
-const yxztcols = [{ text: "暂无", key: 1 }];
-const zbxzcols = [{ text: "暂无", key: 1 }];
-const zybbzcols = [{ text: "暂无", key: 1 }];
+const yxztcols = [
+  { text: "运行", key: 1 },
+  { text: "暂无", key: 2 },
+  { text: "拆除", key: 3 }
+];
+const zbxzcols = [
+  { text: "主用", key: 1 },
+  { text: "热备", key: 1 },
+  { text: "冷备", key: 1 }
+];
+const zybbzcols = [
+  { text: "专用", key: 1 },
+  { text: "公用", key: 1 }
+];
 const bsbhcols = [{ text: "暂无", key: 1 }];
-const cqcols = [{ text: "暂无", key: 1 }];
+const cqcols = [
+  { text: "供电企业资产", key: 1 },
+  { text: "客户资产", key: 2 },
+  { text: "发电企业资产", key: 3 }
+];
 export default {
   data() {
     return {

@@ -25,25 +25,56 @@
       <van-button type="info" block :square="true">保存</van-button>
       <div class="btn-d"></div>
       <van-button type="danger" block :square="true">删除</van-button>
-      <div class="btn-d"></div>
-      <van-button type="default" block @click="()=>{this.$router.go(-1)}" :square="true">返回</van-button>
     </div>
   </div>
 </template>
 <script>
 import Picker from "../../../../../components/picker";
-const hgqlbcols = [{ text: "电流互感器", key: 1 }];
-const hgqlxcols = [{ text: "高压TA", key: 1 }];
-const dyhgqbbcols = [{ text: "10/5", key: 1 }];
-const dlhgqbbcols = [{ text: "10/5", key: 1 }];
-const xbcols = [{ text: "A相", key: 1 }];
-const zqddjcols = [{ text: "1", key: 1 }];
+const hgqlbcols = [
+  { text: "电压互感器", key: 1 },
+  { text: "电流互感器", key: 2 },
+  { text: "组合式互感器", key: 3 }
+];
+const dyhgqlxcols = [
+  { text: "高压TV", key: 1 },
+  { text: "低压TV", key: 2 }
+];
+const dlhgqlxcols = [
+  { text: "高压TA", key: 3 },
+  { text: "低压TA", key: 4 }
+];
+const dyhgqbbcols = [{ text: "10/0.1", key: 1 }];
+const dlhgqbbcols = [
+  { text: "15/5", key: 1 },
+  { text: "20/5", key: 2 },
+  { text: "30/5", key: 3 },
+  { text: "40/5", key: 4 },
+  { text: "50/5", key: 5 },
+  { text: "75/5", key: 6 },
+  { text: "100/5", key: 7 },
+  { text: "150/5", key: 8 },
+  { text: "200/5", key: 9 },
+  { text: "250/5A", key: 10 },
+  { text: "300/5A", key: 11 }
+];
+const xbcols = [
+  { text: "AB相", key: 1 },
+  { text: "BC相", key: 2 },
+  { text: "AB+BC相", key: 3 }
+];
+const zqddjcols = [
+  { text: "1.0", key: 1 },
+  { text: "0.2", key: 2 },
+  { text: "0.2S", key: 3 },
+  { text: "0.5", key: 4 },
+  { text: "0.5S", key: 5 }
+];
 const bgsmcols = [{ text: "新增", key: 1 }];
 export default {
   data() {
     return {
       hgqlbcols: hgqlbcols,
-      hgqlxcols: hgqlxcols,
+      hgqlxcols: dyhgqlxcols,
       dyhgqbbcols: dyhgqbbcols,
       dlhgqbbcols: dlhgqbbcols,
       xbcols: xbcols,

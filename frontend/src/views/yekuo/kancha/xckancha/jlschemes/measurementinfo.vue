@@ -67,16 +67,55 @@
 <script>
 import Picker from "../../../../../components/picker";
 
-const jldxzcols = [{ text: "结算", key: 1 }];
+const jldxzcols = [
+  { text: "结算", key: 1 },
+  { text: "考核", key: 2 },
+  { text: "光伏核减表", key: 3 }
+];
 const jldflcols = [{ text: "用电客户", key: 1 }];
-const jldssccols = [{ text: "变电站内", key: 1 }];
-const jlfscols = [{ text: "高供高计", key: 1 }];
+const jldssccols = [
+  { text: "变电站内", key: 1 },
+  { text: "变电站外", key: 2 },
+  { text: "电网侧", key: 3 },
+  { text: "用户侧", key: 4 }
+];
+const jlfscols = [
+  { text: "高供高计", key: 1 },
+  { text: "高供低计", key: 2 },
+  { text: "低供低计", key: 3 }
+];
 const jlzzflcols = [{ text: "暂无", key: 1 }];
-const dydjcols = [{ text: "交流20Kv", key: 1 }];
-const jxfscols = [{ text: "三相三线", key: 1 }];
+const dydjcols = [
+  { text: "220V", key: 1 },
+  { text: "10kV", key: 2 },
+  { text: "380V", key: 3 },
+  { text: "35kV", key: 4 },
+  { text: "110kV", key: 5 },
+  { text: "220kV", key: 6 },
+  { text: "500kV", key: 7 }
+];
+const jxfscols = [
+  { text: "三相三线", key: 1 },
+  { text: "三相四线", key: 2 },
+  { text: "单相", key: 3 }
+];
 const dljhdflcols = [{ text: "暂无", key: 1 }];
-const zytlxcols = [{ text: "台区供电考核", key: 1 }];
-const bgsmcols = [{ text: "变更", key: 1 }];
+const zytlxcols = [
+  { text: "台区供电考核", key: 1 },
+  { text: "售电侧结算", key: 2 },
+  { text: "线路供电考核", key: 3 },
+  { text: "指标分析", key: 4 },
+  { text: "趸售供电关口", key: 5 },
+  { text: "地市供电关口", key: 6 },
+  { text: "省级供电关口", key: 7 },
+  { text: "跨省输电关口", key: 8 },
+  { text: "跨区输点关口", key: 9 }
+];
+const bgsmcols = [
+  { text: "新装", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "拆除", key: 3 }
+];
 const sfjbzbtjcols = [
   { text: "是", key: 1 },
   { text: "否", key: 0 }

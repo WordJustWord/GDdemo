@@ -88,8 +88,24 @@
 import Picker from "../../../../../components/picker";
 import TimePicker from "../../../../../components/timepicker";
 
-const eccdycols = [{ text: "暂无", key: 1 }];
-const yccdycols = [{ text: "暂无", key: 1 }];
+const eccdycols = [
+  { text: "220V", key: 1 },
+  { text: "10kV", key: 2 },
+  { text: "380V", key: 3 },
+  { text: "35kV", key: 4 },
+  { text: "110kV", key: 5 },
+  { text: "220kV", key: 6 },
+  { text: "500kV", key: 7 }
+];
+const yccdycols = [
+  { text: "220V", key: 1 },
+  { text: "10kV", key: 2 },
+  { text: "380V", key: 3 },
+  { text: "35kV", key: 4 },
+  { text: "110kV", key: 5 },
+  { text: "220kV", key: 6 },
+  { text: "500kV", key: 7 }
+];
 const eddygycols = [{ text: "暂无", key: 1 }];
 const eddlgycols = [{ text: "暂无", key: 1 }];
 const eddyzycols = [{ text: "暂无", key: 1 }];

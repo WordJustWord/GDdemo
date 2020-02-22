@@ -37,6 +37,7 @@ import SdDeviceMenu from "../views/yekuo/kancha/xckancha/sddeviceinfo/sddeviceme
 import DeviceInfo from "../views/yekuo/kancha/xckancha/sddeviceinfo/deviceinfo";
 import Nameplate from "../views/yekuo/kancha/xckancha/sddeviceinfo/nameplate";
 import Templates from "../views/yekuo/kancha/templates";
+import Biaodan from "../views/yekuo/kancha/biaodan"
 
 const routers = [
     {
@@ -288,6 +289,11 @@ const routers = [
             path: '/templates',
             name: 'templates',
             component: Templates
+        },
+        {
+            path: '/biaodan/:id',
+            name: 'biaodan',
+            component: Biaodan
         },
         ]
     }

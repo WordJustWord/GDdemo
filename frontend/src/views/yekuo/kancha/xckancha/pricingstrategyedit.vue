@@ -33,9 +33,22 @@
 </template>
 <script>
 import Picker from "../../../../components/picker";
-const djcllxcols = [{ text: "两部制", key: 1 }];
-const jbdfjsfscols = [{ text: "不计算", key: 1 }];
-const glyskhfscols = [{ text: "标准考核", key: 1 }];
+const djcllxcols = [
+  { text: "两部制", key: 1 },
+  { text: "单一制", key: 2 }
+];
+const jbdfjsfscols = [
+  { text: "不计算", key: 1 },
+  { text: "按容量", key: 2 },
+  { text: "合约最大需量", key: 3 },
+  { text: "实际最大需量", key: 4 },
+  { text: "按容需对比", key: 5 }
+];
+const glyskhfscols = [
+  { text: "只奖不罚", key: 1 },
+  { text: "只罚不奖", key: 2 },
+  { text: "标准考核", key: 3 }
+];
 export default {
   data() {
     return {

@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+
 @RestController
 @RequestMapping("/api")
 @Slf4j
@@ -18,6 +21,8 @@ public class ApplicationController {
     private SqxinxiService sqxinxiService;
     @Autowired
     private ScbiaodanService scbiaodanService;
+    @Value("${my.outpath}")
+    private String path;
 
     @GetMapping(value = "/ApplicationInfo/{id}")
     public NormalResult getApplicationInfo(@PathVariable String id) {
@@ -26,17 +31,37 @@ public class ApplicationController {
     }
 
     @PostMapping(value = "/ApplicationInfo/{id}")
-    public NormalResult addApplicationInfo(@PathVariable String id, ApplyInfoDto dto){
-        int res = sqxinxiService.addNewApplicationInfo(Long.valueOf(id),dto);
-        if (res == 1){
+    public NormalResult addApplicationInfo(@PathVariable String id, ApplyInfoDto dto) {
+        int res = sqxinxiService.addNewApplicationInfo(Long.valueOf(id), dto);
+        if (res == 1) {
             return NormalResult.ok();
         }
-        return NormalResult.ok(200,"","数据存入失败！");
+        return NormalResult.ok(200, "", "数据存入失败！");
     }
 
     @GetMapping("/scbiaodan")
-    public NormalResult getBiaodan(){
+    public NormalResult getBiaodan() {
         scbiaodanService.testDoc();
         return NormalResult.ok();
+    }
+
+    @GetMapping("/read/{title}")
+    public void readFile(HttpServletResponse res, @PathVariable String title) throws Exception {
+        File file = new File(path + "/" + title + "-doc.pdf");
+        if (file.exists()) {
+            byte[] data = null;
+            try {
+                FileInputStream input = new FileInputStream(file);
+                data = new byte[input.available()];
+                input.read(data);
+                res.getOutputStream().write(data);
+                input.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+        } else {
+            return;
+        }
     }
 }
