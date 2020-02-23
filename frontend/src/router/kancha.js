@@ -44,256 +44,307 @@ const routers = [
         path: '/kcinfo/:id',
         name: 'kcinfo',
         component: Kcinfo,
+        meta: { requireAuth: true },
         redirect: { name: "kcwarning" },
         children: [{
             path: '/kcprofile/:id',
             name: 'kcprofile',
-            component: KcProfile
+            component: KcProfile,
+            meta: { requireAuth: true }
         },
         {
             path: '/kcwarning',
             name: 'kcwarning',
-            component: KcWarning
+            component: KcWarning,
+            meta: { requireAuth: true }
         },
         {
             path: '/kchedui',
             name: 'kchedui',
-            component: KcHedui
+            component: KcHedui,
+            meta: { requireAuth: true }
         },
         {
             path: '/kccontact',
             name: 'kccontact',
-            component: KcContact
+            component: KcContact,
+            meta: { requireAuth: true }
         },
         {
             path: '/kcfeikong',
             name: 'kcfeikong',
-            component: KcFeikong
+            component: KcFeikong,
+            meta: { requireAuth: true }
         },
         {
             path: '/kcfinancial',
             name: 'kcfinancial',
-            component: KcFinancial
+            component: KcFinancial,
+            meta: { requireAuth: true }
         },
         {
             path: '/kcmaterial',
             name: 'kcmaterial',
-            component: KcMaterial
+            component: KcMaterial,
+            meta: { requireAuth: true }
         },
         {
             path: '/kcfangan',
             name: 'kcfangan',
-            component: KcScheme
+            component: KcScheme,
+            meta: { requireAuth: true }
         },
         {
             path: '/fagdinfo',
             name: 'fagdinfo',
-            component: FaGdinfo
+            component: FaGdinfo,
+            meta: { requireAuth: true }
         },
         {
             path: '/fackinfo',
             name: 'fackinfo',
-            component: FaCkinfo
+            component: FaCkinfo,
+            meta: { requireAuth: true }
         },
         {
             path: '/xckancha',
             name: 'xckancha',
-            component: XcKancha
+            component: XcKancha,
+            meta: { requireAuth: true }
         },
         {
             path: '/sdscheme',
             name: 'sdscheme',
-            component: XcSdscheme
+            component: XcSdscheme,
+            meta: { requireAuth: true }
         },
         {
             path: '/sdschemeadd',
             name: 'sdschemeadd',
-            component: XcSdschemeEdit
+            component: XcSdschemeEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/sdschemeedit/:id',
             name: 'sdschemeedit',
-            component: XcSdschemeEdit
+            component: XcSdschemeEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/sdgdscheme',
             name: 'sdgdscheme',
-            component: XcGdscheme
+            component: XcGdscheme,
+            meta: { requireAuth: true }
         },
         {
             path: '/gdschemeadd',
             name: 'gdschemeadd',
-            component: XcGdschemeEdit
+            component: XcGdschemeEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/gdschemeedit/:id',
             name: 'gdschemeedit',
-            component: XcGdschemeEdit
+            component: XcGdschemeEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/yhpayscheme',
             name: 'yhpayscheme',
-            component: XcYhPayScheme
+            component: XcYhPayScheme,
+            meta: { requireAuth: true }
         },
         {
             path: '/pricingstrategyadd',
             name: 'pricingstrategyadd',
-            component: XcPricingStrategyEdit
+            component: XcPricingStrategyEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/pricingstrategyedit/:id',
             name: 'pricingstrategyedit',
-            component: XcPricingStrategyEdit
+            component: XcPricingStrategyEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/priceschemeadd',
             name: 'priceschemeadd',
-            component: XcPriceSchemeEdit
+            component: XcPriceSchemeEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/priceschemeedit/:id',
             name: 'priceschemeedit',
-            component: XcPriceSchemeEdit
+            component: XcPriceSchemeEdit,
+            meta: { requireAuth: true }
         },
         {
             path: '/jlscheme',
             name: 'jlscheme',
-            component: XcJlscheme
+            component: XcJlscheme,
+            meta: { requireAuth: true }
         },
         {
             path: '/jlschemetabs',
             name: 'jlschemetabs',
-            component: XcJlschemeTabs
+            component: XcJlschemeTabs,
+            meta: { requireAuth: true }
         },
         {
             path: '/jlschemetabs/:id',
             name: 'jlschemeedit',
-            component: XcJlschemeTabs
+            component: XcJlschemeTabs,
+            meta: { requireAuth: true }
         },
         {
             path: '/measurementinfo',
             name: 'measurementinfo',
-            component: MeasurementInfo
+            component: MeasurementInfo,
+            meta: { requireAuth: true }
         },
         {
             path: '/paymentinfo',
             name: 'paymentinfo',
-            component: PaymentInfo
+            component: PaymentInfo,
+            meta: { requireAuth: true }
         },
         {
             path: '/paymentrela',
             name: 'paymentrela',
-            component: PaymentRela
+            component: PaymentRela,
+            meta: { requireAuth: true }
         },
         {
             path: '/measurementpoint',
             name: 'measurementpoint',
-            component: MeasurementPoint
+            component: MeasurementPoint,
+            meta: { requireAuth: true }
         },
         {
             path: '/mpointusage',
             name: 'mpointusage',
-            component: MpointUsage
+            component: MpointUsage,
+            meta: { requireAuth: true }
         },
         {
             path: '/usagedetail',
             name: 'usagedetail',
-            component: UsageDetail
+            component: UsageDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/usagedetail/:id',
             name: 'usagedetailedit',
-            component: UsageDetail
+            component: UsageDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/energymeter',
             name: 'energymeter',
-            component: EnergyMeter
+            component: EnergyMeter,
+            meta: { requireAuth: true }
         },
         {
             path: '/energymeterdetail',
             name: 'energymeterdetail',
-            component: EnergyMeterDetail
+            component: EnergyMeterDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/energymeterdetail/:id',
             name: 'energymeterdetailedit',
-            component: EnergyMeterDetail
+            component: EnergyMeterDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/hgqscheme',
             name: 'hgqscheme',
-            component: HgqScheme
+            component: HgqScheme,
+            meta: { requireAuth: true }
         },
         {
             path: '/hgqschemedetail',
             name: 'hgqschemedetail',
-            component: HgqSchemeDetail
+            component: HgqSchemeDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/hgqschemedetail/:id',
             name: 'hgqschemedetailedit',
-            component: HgqSchemeDetail
+            component: HgqSchemeDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/meteringbox',
             name: 'meteringbox',
-            component: MeteringBox
+            component: MeteringBox,
+            meta: { requireAuth: true }
         },
         {
             path: '/meteringboxdetail',
             name: 'meteringboxdetail',
-            component: MeteringBoxDetail
+            component: MeteringBoxDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/meteringboxdetail/:id',
             name: 'meteringboxdetailedit',
-            component: MeteringBoxDetail
+            component: MeteringBoxDetail,
+            meta: { requireAuth: true }
         },
         {
             path: '/meteringcabinet',
             name: 'meteringcabinet',
-            component: MeteringCabinet
+            component: MeteringCabinet,
+            meta: { requireAuth: true }
         },
         {
             path: '/meteringcabinet/:id',
             name: 'meteringcabinetedit',
-            component: MeteringCabinet
+            component: MeteringCabinet,
+            meta: { requireAuth: true }
         },
         {
             path: '/sddeviceinfo',
             name: 'sddeviceinfo',
-            component: SdDeviceInfo
+            component: SdDeviceInfo,
+            meta: { requireAuth: true }
         },
         {
             path: '/sddevicemenu',
             name: 'sddevicemenu',
-            component: SdDeviceMenu
+            component: SdDeviceMenu,
+            meta: { requireAuth: true }
         },
         {
             path: '/sddevicemenu/:id',
             name: 'sddevicemenuedit',
-            component: SdDeviceMenu
+            component: SdDeviceMenu,
+            meta: { requireAuth: true }
         },
         {
             path: '/deviceinfo',
             name: 'deviceinfo',
-            component: DeviceInfo
+            component: DeviceInfo,
+            meta: { requireAuth: true }
         },
         {
             path: '/nameplate',
             name: 'nameplate',
-            component: Nameplate
+            component: Nameplate,
+            meta: { requireAuth: true }
         },
         {
             path: '/templates',
             name: 'templates',
-            component: Templates
+            component: Templates,
+            meta: { requireAuth: true }
         },
         {
             path: '/biaodan/:id',
             name: 'biaodan',
-            component: Biaodan
+            component: Biaodan,
+            meta: { requireAuth: true }
         },
         ]
     }

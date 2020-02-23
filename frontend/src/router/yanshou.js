@@ -23,92 +23,110 @@ const routers = [
         path: '/ysinfo/:id',
         name: 'ysinfo',
         component: Ysinfo,
+        meta: { requireAuth: true },
         redirect: { name: "yswarning" },
         children: [
             {
                 path: '/yswarning',
                 name: 'yswarning',
-                component: YsWarning
+                component: YsWarning,
+                meta: { requireAuth: true }
             },
             {
                 path: '/yshedui',
                 name: 'yshedui',
-                component: YsHedui
+                component: YsHedui,
+                meta: { requireAuth: true }
             },
             {
                 path: '/ysprofile/:id',
                 name: 'ysprofile',
-                component: YsProfile
+                component: YsProfile,
+                meta: { requireAuth: true }
             },
             {
                 path: '/ysxianlu',
                 name: 'ysxianlu',
-                component: YsXianlu
+                component: YsXianlu,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jiakongxian',
                 name: 'jiakongxian',
-                component: Jiakongxian
+                component: Jiakongxian,
+                meta: { requireAuth: true }
             },
             {
                 path: '/shoudianbian',
                 name: 'shoudianbian',
-                component: Shoudianbian
+                component: Shoudianbian,
+                meta: { requireAuth: true }
             },
             {
                 path: '/bianyaqi',
                 name: 'bianyaqi',
-                component: Bianyaqi
+                component: Bianyaqi,
+                meta: { requireAuth: true }
             },
             {
                 path: '/pdzhuangzhi',
                 name: 'pdzhuangzhi',
-                component: Pdzhuangzhi
+                component: Pdzhuangzhi,
+                meta: { requireAuth: true }
             },
             {
                 path: '/zbdianyuan',
                 name: 'zbdianyuan',
-                component: Zbdianyuan
+                component: Zbdianyuan,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jdbaohu',
                 name: 'jdbaohu',
-                component: Jdbaohu
+                component: Jdbaohu,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jdbaohudetail',
                 name: 'jdbaohudetail',
-                component: JdbaohuDetail
+                component: JdbaohuDetail,
+                meta: { requireAuth: true }
             },
             {
                 path: '/yxzhunbei',
                 name: 'yxzhunbei',
-                component: Yxzhunbei
+                component: Yxzhunbei,
+                meta: { requireAuth: true }
             },
             {
                 path: '/yxzbdetail',
                 name: 'yxzbdetail',
-                component: YxzbItem
+                component: YxzbItem,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jgyanshou',
                 name: 'jgyanshou',
-                component: Jgyanshou
+                component: Jgyanshou,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jgysjieguo',
                 name: 'jgysjieguo',
-                component: Jgysjieguo
+                component: Jgysjieguo,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jgysmingxi',
                 name: 'jgysmingxi',
-                component: JgysMingxi
+                component: JgysMingxi,
+                meta: { requireAuth: true }
             },
             {
                 path: '/jgysjgdetail',
                 name: 'jgysjgdetail',
-                component: JgysjgDetail
+                component: JgysjgDetail,
+                meta: { requireAuth: true }
             },
         ]
     }

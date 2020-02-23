@@ -6,7 +6,7 @@
       <van-field v-model="data.username" label="用户名" placeholder="请输入用户名" />
       <van-field v-model="data.password" type="password" label="密码" placeholder="请输入密码" />
       <div class="btn-login">
-        <van-button type="info" block :square="true">登录</van-button>
+        <van-button type="info" block @click="onLogin" :square="true">登录</van-button>
       </div>
       <div class="btn-d"></div>
       <div class="btn-signup">
@@ -28,6 +28,12 @@ export default {
         remember: false
       }
     };
+  },
+  methods: {
+    onLogin() {
+      localStorage.setItem("login", true);
+      this.$router.push("/");
+    }
   }
 };
 </script>

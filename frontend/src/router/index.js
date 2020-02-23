@@ -39,12 +39,14 @@ const routes = [
     path: '/yekuo',
     name: 'yekuo',
     component: YekuoMain,
+    meta: { requireAuth: true },
     redirect: { name: "yewu" },
     children: [
       {
         path: '/yewu',
         name: 'yewu',
-        component: Yewu
+        component: Yewu,
+        meta: { requireAuth: true }
       },
       {
         path: '/kancha',
@@ -55,17 +57,20 @@ const routes = [
       {
         path: '/yanshou',
         name: 'yanshou',
-        component: Yanshou
+        component: Yanshou,
+        meta: { requireAuth: true }
       },
       {
         path: '/czbiao',
         name: 'czbiao',
-        component: Czbiao
+        component: Czbiao,
+        meta: { requireAuth: true }
       },
       {
         path: '/tsdian',
         name: 'tsdian',
-        component: Tsdian
+        component: Tsdian,
+        meta: { requireAuth: true }
       },
       ...kancha,
       ...yanshou,
@@ -76,7 +81,8 @@ const routes = [
   {
     path: '/wode',
     name: 'wode',
-    component: WodeMain
+    component: WodeMain,
+    meta: { requireAuth: true }
   },
   {
     path: '*',

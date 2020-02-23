@@ -1,7 +1,8 @@
 import router from "../router/index";
 
 router.beforeEach((to, from, next) => {
-    let islogin = true;
+    let islogin = false;
+    islogin = localStorage.getItem("login");
     if (to.path === "/signin") {
         if (islogin) {
             next("/");

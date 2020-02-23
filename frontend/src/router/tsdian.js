@@ -11,37 +11,44 @@ const router = [
         path: '/tsdinfo/:id',
         name: 'tsdinfo',
         component: Tsdinfo,
+        meta: { requireAuth: true },
         redirect: { name: "tsdwarning" },
         children: [
             {
                 path: '/tsdprofile/:id',
                 name: 'tsdprofile',
-                component: TsdProfile
+                component: TsdProfile,
+                meta: { requireAuth: true }
             },
             {
                 path: '/tsdwarning',
                 name: 'tsdwarning',
-                component: TsdWarning
+                component: TsdWarning,
+                meta: { requireAuth: true }
             },
             {
                 path: '/tsdhedui',
                 name: 'tsdhedui',
-                component: TsdHedui
+                component: TsdHedui,
+                meta: { requireAuth: true }
             },
             {
                 path: '/tsdsdqjc',
                 name: 'tsdsdqjc',
-                component: TsdSdqjiancha
+                component: TsdSdqjiancha,
+                meta: { requireAuth: true }
             },
             {
                 path: '/tsdxxlu',
                 name: 'tsdxxlu',
-                component: TsdXxluru
+                component: TsdXxluru,
+                meta: { requireAuth: true }
             },
             {
                 path: '/tsdsdhjc',
                 name: 'tsdsdhjc',
-                component: TsdSdhjiancha
+                component: TsdSdhjiancha,
+                meta: { requireAuth: true }
             },
         ]
     }
