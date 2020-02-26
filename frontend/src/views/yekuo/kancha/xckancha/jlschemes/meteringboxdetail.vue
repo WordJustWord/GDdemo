@@ -22,7 +22,11 @@
 <script>
 import Picker from "../../../../../components/picker";
 
-const bgsmcols = [{ text: "新增", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 const lbcols = [{ text: "单体表箱", key: 1 }];
 const cllxcols = [{ text: "铁", key: 1 }];
 export default {

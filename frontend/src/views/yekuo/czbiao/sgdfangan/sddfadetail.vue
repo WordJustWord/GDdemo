@@ -68,7 +68,11 @@ const sfybydycols = [
   { text: "否", key: 0 }
 ];
 const zbdybsfscols = [{ text: "机械", key: 1 }];
-const bgsmcols = [{ text: "新增", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 
 export default {
   data() {

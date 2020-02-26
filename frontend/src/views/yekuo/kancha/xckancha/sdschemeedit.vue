@@ -92,7 +92,11 @@ const zbdybsfscols = [
   { text: "电子", key: 4 },
   { text: "其它", key: 5 }
 ];
-const bgsmcols = [{ text: "新增", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 
 export default {
   data() {

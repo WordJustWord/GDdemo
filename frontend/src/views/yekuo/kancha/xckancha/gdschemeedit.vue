@@ -112,7 +112,11 @@ const cqfjdcols = [{ text: "暂无", key: 1 }];
 const fjkgdlqeddlcols = [{ text: "630A", key: 1 }];
 const dlggcols = [{ text: "暂无", key: 1 }];
 const jkcols = [{ text: "架空裸导线", key: 1 }];
-const bgsmcols = [{ text: "新增", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 export default {
   data() {
     return {

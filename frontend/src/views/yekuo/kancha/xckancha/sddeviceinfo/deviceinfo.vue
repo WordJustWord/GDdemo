@@ -34,7 +34,11 @@ import TimePicker from "../../../../../components/timepicker";
 
 const xlcols = [{ text: "10Kv", key: 1 }];
 const tqcols = [{ text: "暂无", key: 1 }];
-const bgsmcols = [{ text: "新装", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 const sblxcols = [
   { text: "变压器", key: 1 },
   { text: "高压电机", key: 2 }

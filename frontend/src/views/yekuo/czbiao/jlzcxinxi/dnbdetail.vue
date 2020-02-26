@@ -2,7 +2,7 @@
   <div class="dnb-detail">
     <van-field v-model="data.zcbh" label="资产编号" placeholder="请输入资产编号" />
     <Picker :columns="bgsmcols" required="0" label="变更说明" placeholder="变更说明" @res="bgsmConfirm"></Picker>
-    <Picker :columns="dlblbcols" required="1" label="电能表类别" placeholder="电能表类别" @res="dlblbConfirm"></Picker>
+    <van-field v-model="data.dnblb" label="电能表类别" placeholder="请输入电能表类别" />
     <Picker :columns="jxfscols" required="1" label="接线方式" placeholder="接线方式" @res="jxfsConfirm"></Picker>
     <Picker :columns="dycols" required="1" label="电压" placeholder="电压" @res="dyConfirm"></Picker>
     <Picker :columns="dlcols" required="0" label="电流" placeholder="电流" @res="dlConfirm"></Picker>
@@ -20,9 +20,17 @@
 <script>
 import Picker from "../../../../components/picker";
 
-const bgsmcols = [{ text: "变更", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 const dlblbcols = [{ text: "有功表", key: 1 }];
-const jxfscols = [{ text: "单相", key: 1 }];
+const jxfscols = [
+  { text: "单相", key: 1 },
+  { text: "三相三线", key: 2 },
+  { text: "三相四线", key: 3 }
+];
 const dycols = [{ text: "3*220v/380v", key: 1 }];
 const dlcols = [{ text: "0.3(1.2)A", key: 1 }];
 const zqddjcols = [{ text: "1", key: 1 }];

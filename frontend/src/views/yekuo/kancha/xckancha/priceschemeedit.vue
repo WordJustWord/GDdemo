@@ -64,7 +64,11 @@ const glysbzcols = [
   { text: "考核标准0.85", key: 3 },
   { text: "考核标准0.9", key: 4 }
 ];
-const bgsmcols = [{ text: "新增", key: 1 }];
+const bgsmcols = [
+  { text: "新增", key: 1 },
+  { text: "变更", key: 2 },
+  { text: "删除", key: 3 }
+];
 export default {
   data() {
     return {
