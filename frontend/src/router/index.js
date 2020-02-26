@@ -7,7 +7,7 @@ import WodeMain from "../views/wode/main";
 import Signin from "../views/login/signin";
 import Signup from "../views/login/signup";
 
-import Yewu from "../views/yekuo/yewu";
+import Yewu from "../views/yewu/main";
 import Kancha from "../views/yekuo/kancha";
 import Yanshou from "../views/yekuo/yanshou";
 import Czbiao from "../views/yekuo/czbiao";
@@ -17,6 +17,7 @@ import kancha from "./kancha";
 import yanshou from "./yanshou";
 import czbiao from "./czbiao";
 import tsdian from "./tsdian";
+import yewu from "./ywshouli";
 
 import NotFound from "../views/error/404";
 
@@ -76,6 +77,7 @@ const routes = [
       ...yanshou,
       ...czbiao,
       ...tsdian,
+      ...yewu
     ]
   },
   {
