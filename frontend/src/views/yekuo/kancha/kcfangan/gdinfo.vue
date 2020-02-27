@@ -7,8 +7,6 @@
     <van-field v-model="data.ePowerProducePerMonth" label="预计月自发电量" placeholder="请输入预计月自发电量" />
     <van-field v-model="data.ePowerFeePerMonth" label="预计月应收电费" placeholder="请输入预计月应收电费" />
     <van-field v-model="data.ePowerMax" label="预计最大负荷" placeholder="请输入预计最大负荷" />
-    <van-field v-model="data.energeFeeDesc" label="工程费用分摊描述" placeholder="请输入工程费用分摊描述" />
-    <van-field v-model="data.ctInfomation" label="通讯远动信息" placeholder="请输入通讯远动信息" />
     <van-field v-model="data.opinion" label="确认人意见" placeholder="请输入确认人意见" />
     <van-field v-model="data.schemeDesc" label="供电方案说明" placeholder="请输入供电方案说明" />
 

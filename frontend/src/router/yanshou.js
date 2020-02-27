@@ -16,6 +16,8 @@ import Jgyanshou from "../views/yekuo/yanshou/jgyanshou/jgyanshou";
 import Jgysjieguo from "../views/yekuo/yanshou/jgyanshou/jgysjieguo";
 import JgysMingxi from "../views/yekuo/yanshou/jgyanshou/mingxi";
 import JgysjgDetail from "../views/yekuo/yanshou/jgyanshou/jgysjgdetail";
+import Dianlan from "../views/yekuo/yanshou/xianlu/dianlan";
+import Ybyaoqiu from "../views/yekuo/yanshou/xianlu/ybyaoqiu";
 
 
 const routers = [
@@ -126,6 +128,18 @@ const routers = [
                 path: '/jgysjgdetail',
                 name: 'jgysjgdetail',
                 component: JgysjgDetail,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/dianlan',
+                name: 'dianlan',
+                component: Dianlan,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/ybyaoqiu',
+                name: 'ybyaoqiu',
+                component: Ybyaoqiu,
                 meta: { requireAuth: true }
             },
         ]

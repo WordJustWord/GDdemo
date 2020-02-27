@@ -1,9 +1,9 @@
 <template>
   <div class="jdbaohu-detail">
     <van-cell-group>
-      <van-cell title="继电保护">
+      <van-cell title="定值清单">
         <template slot="default">
-          <van-switch size="20" v-model="data.jdbh" />
+          <van-switch size="20" v-model="data.dzqd" />
         </template>
       </van-cell>
     </van-cell-group>
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       data: {
-        jdbh: false
+        dzqd: false
       }
     };
   }

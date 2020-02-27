@@ -148,8 +148,8 @@ const modeColumns = [{ text: "柜台服务", key: "1" }];
 const eTypeCols = [{ text: "城镇居民生活用电", key: "1" }];
 const ceTypeCols = [{ text: "商业用电", key: "1" }];
 const voltageCols = [
-  { text: "220v", key: "1" },
-  { text: "380v", key: "2" }
+  { text: "3*220v/380v", key: 1 },
+  { text: "3*100V", key: 2 }
 ];
 export default {
   data() {

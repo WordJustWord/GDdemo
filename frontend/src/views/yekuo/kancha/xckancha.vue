@@ -6,8 +6,6 @@
       <van-cell title="用户计费方案" :is-link="true" to="/yhpayscheme" />
       <van-cell title="计量方案信息" :is-link="true" to="/jlscheme" />
       <van-cell title="受电设备方案" :is-link="true" to="/sddeviceinfo" />
-      <van-cell title="用电设备方案" :is-link="true" />
-      <van-cell title="接线简图" :is-link="true" />
     </van-cell-group>
   </div>
 </template>

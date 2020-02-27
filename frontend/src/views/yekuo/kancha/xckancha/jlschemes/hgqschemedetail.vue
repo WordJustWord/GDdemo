@@ -10,15 +10,9 @@
       placeholder="电压互感器变比"
       @res="dyhgqbbConfirm"
     ></Picker>
-    <Picker
-      :columns="dlhgqbbcols"
-      required="0"
-      label="电流互感器变比"
-      placeholder="电流互感器变比"
-      @res="dlhgqbbConfirm"
-    ></Picker>
+    <van-field v-model="data.dlhgqbb" label="电流互感器变比" placeholder="请输入电流互感器变比" />
     <Picker :columns="xbcols" required="0" label="相别" placeholder="相别" @res="xbConfirm"></Picker>
-    <Picker :columns="zqddjcols" required="0" label="准确度等级" placeholder="准确度等级" @res="zqddjConfirm"></Picker>
+    <van-field v-model="data.zqddj" label="准确度等级" placeholder="请输入准确度等级" />
     <van-field v-model="data.sl" label="数量" placeholder="请输入数量" />
     <Picker :columns="bgsmcols" required="0" label="变更说明" placeholder="变更说明" @res="bgsmConfirm"></Picker>
     <div class="btn-group">
@@ -37,7 +31,9 @@ const hgqlbcols = [
 ];
 const dyhgqlxcols = [
   { text: "高压TV", key: 1 },
-  { text: "低压TV", key: 2 }
+  { text: "低压TV", key: 2 },
+  { text: "高压TA", key: 3 },
+  { text: "低压TA", key: 4 }
 ];
 const dlhgqlxcols = [
   { text: "高压TA", key: 3 },
@@ -60,7 +56,10 @@ const dlhgqbbcols = [
 const xbcols = [
   { text: "AB相", key: 1 },
   { text: "BC相", key: 2 },
-  { text: "AB+BC相", key: 3 }
+  { text: "AB+BC相", key: 3 },
+  { text: "A相", key: 4 },
+  { text: "B相", key: 5 },
+  { text: "C相", key: 6 }
 ];
 const zqddjcols = [
   { text: "1.0", key: 1 },

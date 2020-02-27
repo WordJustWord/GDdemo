@@ -7,7 +7,7 @@
     <Picker :columns="dycols" required="1" label="电压" placeholder="电压" @res="dyConfirm"></Picker>
     <Picker :columns="dlcols" required="0" label="电流" placeholder="电流" @res="dlConfirm"></Picker>
     <van-field v-model="data.zhbl" label="综合倍率" placeholder="请输入综合倍率" />
-    <Picker :columns="zqddjcols" required="1" label="准确度等级" placeholder="准确度等级" @res="zqddjConfirm"></Picker>
+    <van-field v-model="data.zqddj" label="准确度等级" placeholder="请输入准确度等级" />
     <Picker :columns="ckbbzcols" required="0" label="参考表标志" placeholder="参考表标志" @res="ckbbzConfirm"></Picker>
     <Picker :columns="dnblxcols" required="0" label="电能表类型" placeholder="电能表类型" @res="dnblxConfirm"></Picker>
     <div class="btn-group">
@@ -31,7 +31,10 @@ const jxfscols = [
   { text: "三相三线", key: 2 },
   { text: "三相四线", key: 3 }
 ];
-const dycols = [{ text: "3*220v/380v", key: 1 }];
+const dycols = [
+  { text: "3*220v/380v", key: 1 },
+  { text: "3*100V", key: 2 }
+];
 const dlcols = [{ text: "0.3(1.2)A", key: 1 }];
 const zqddjcols = [{ text: "1", key: 1 }];
 const ckbbzcols = [{ text: "暂无", key: 1 }];

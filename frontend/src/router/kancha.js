@@ -37,7 +37,9 @@ import SdDeviceMenu from "../views/yekuo/kancha/xckancha/sddeviceinfo/sddeviceme
 import DeviceInfo from "../views/yekuo/kancha/xckancha/sddeviceinfo/deviceinfo";
 import Nameplate from "../views/yekuo/kancha/xckancha/sddeviceinfo/nameplate";
 import Templates from "../views/yekuo/kancha/templates";
-import Biaodan from "../views/yekuo/kancha/biaodan"
+import Biaodan from "../views/yekuo/kancha/biaodan";
+import hdContactDetail from "../views/yewu/contactdetail";
+import KcConfirm from "../views/yekuo/kancha/confirm";
 
 const routers = [
     {
@@ -68,6 +70,12 @@ const routers = [
             path: '/kccontact',
             name: 'kccontact',
             component: KcContact,
+            meta: { requireAuth: true }
+        },
+        {
+            path: '/hdcontactdetail/:id',
+            name: 'hdcontactdetail',
+            component: hdContactDetail,
             meta: { requireAuth: true }
         },
         {
@@ -344,6 +352,12 @@ const routers = [
             path: '/biaodan/:id',
             name: 'biaodan',
             component: Biaodan,
+            meta: { requireAuth: true }
+        },
+        {
+            path: '/kcconfirm',
+            name: 'kcconfirm',
+            component: KcConfirm,
             meta: { requireAuth: true }
         },
         ]

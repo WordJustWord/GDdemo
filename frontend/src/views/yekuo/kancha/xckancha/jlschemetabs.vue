@@ -8,8 +8,6 @@
       <van-cell title="计量点用途方案" :is-link="true" to="/mpointusage" />
       <van-cell title="电能表方案" :is-link="true" to="/energymeter" />
       <van-cell title="互感器方案" :is-link="true" to="/hgqscheme" />
-      <van-cell title="计量箱方案" :is-link="true" to="/meteringbox" />
-      <van-cell title="计量柜方案" :is-link="true" to="/meteringcabinet" />
     </van-cell-group>
     <div class="btn-group">
       <van-button type="danger" size="small" block :square="true">删除</van-button>
