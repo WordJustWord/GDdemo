@@ -2,8 +2,10 @@ package com.pigmo.gddemo.services.xckancha.hedui;
 
 import com.pigmo.gddemo.apis.repository.ApplicationInfoRepository;
 import com.pigmo.gddemo.apis.repository.ClientRepository;
+import com.pigmo.gddemo.apis.services.InternalDataExchange;
 import com.pigmo.gddemo.apis.services.xckancha.hedui.Sqxinxi;
 import com.pigmo.gddemo.dto.ApplyInfoDto;
+import com.pigmo.gddemo.dto.InternalDataDto;
 import com.pigmo.gddemo.entities.ApplicationEntity;
 import com.pigmo.gddemo.entities.ClientEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class SqxinxiService implements Sqxinxi {
 
     private ClientEntity clientEntity;
     private ApplicationEntity applicationEntity;
+
+    @Autowired
+    private InternalDataExchange internalDataExchangeService;
 
     @Autowired
     public SqxinxiService(ApplicationInfoRepository applicationInfoRepository, ClientRepository clientRepository) {
@@ -75,8 +80,13 @@ public class SqxinxiService implements Sqxinxi {
             applicationEntity.setAppId(dto.getAppNum());
             applicationEntity = fillApplicationValue(applicationEntity, dto);
             applicationInfoRepository.save(applicationEntity);
+            internalDataExchange(new InternalDataDto());
         }
         return 1;
+    }
+
+    private int internalDataExchange(InternalDataDto dto){
+        return internalDataExchangeService.dataExchange(dto);
     }
 
     private ApplicationEntity fillApplicationValue(ApplicationEntity entity, ApplyInfoDto dto) {
