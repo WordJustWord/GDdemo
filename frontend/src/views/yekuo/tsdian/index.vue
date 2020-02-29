@@ -7,6 +7,7 @@
       <van-tab title="信息录入" to="/tsdxxlu"></van-tab>
       <van-tab title="送电后项目检查" to="/tsdsdhjc"></van-tab>
       <van-tab title="生成表单"></van-tab>
+      <van-tab title="结果确认" to="/tsdconfirm"></van-tab>
     </van-tabs>
     <router-view></router-view>
   </div>

@@ -5,6 +5,12 @@ import TsdHedui from "../views/yekuo/tsdian/hedui/hedui";
 import TsdSdqjiancha from "../views/yekuo/tsdian/sdqjiancha/sdqjiancha";
 import TsdXxluru from "../views/yekuo/tsdian/xxluru/xxluru";
 import TsdSdhjiancha from "../views/yekuo/tsdian/sdhjiancha/sdhjiancha";
+import Tsdconfirm from "../views/yekuo/tsdian/confirm";
+
+
+import SdDeviceMenu from "../views/yekuo/tsdian/hedui/sddeviceinfo/sddevicemenu";
+import DeviceInfo from "../views/yekuo/tsdian/hedui/sddeviceinfo/deviceinfo";
+import Nameplate from "../views/yekuo/tsdian/hedui/sddeviceinfo/nameplate";
 
 const router = [
     {
@@ -48,6 +54,36 @@ const router = [
                 path: '/tsdsdhjc',
                 name: 'tsdsdhjc',
                 component: TsdSdhjiancha,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdconfirm',
+                name: 'tsdconfirm',
+                component: Tsdconfirm,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdsddevicemenu',
+                name: 'tsdsddevicemenu',
+                component: SdDeviceMenu,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdsddevicemenu/:id',
+                name: 'tsdsddevicemenuedit',
+                component: SdDeviceMenu,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsddeviceinfo',
+                name: 'tsddeviceinfo',
+                component: DeviceInfo,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdnameplate',
+                name: 'tsdnameplate',
+                component: Nameplate,
                 meta: { requireAuth: true }
             },
         ]

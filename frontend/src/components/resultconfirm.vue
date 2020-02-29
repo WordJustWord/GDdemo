@@ -7,6 +7,7 @@
 </template>
 <script>
 import { Dialog } from "vant";
+import { Toast } from "vant";
 export default {
   props: ["path"],
   data() {
@@ -19,7 +20,12 @@ export default {
         message: "确认提交？"
       })
         .then(() => {
-          this.$router.push(this.path);
+          console.log(this.path);
+          if (this.path === "/tsdian2") {
+            Toast.success("提交成功！");
+          } else {
+            this.$router.push(this.path);
+          }
         })
         .catch(() => {
           // on cancel

@@ -4,7 +4,7 @@
       v-model="time"
       :label="label"
       @click="()=>{
-      this.show = true}"
+      this.show = !isReadonly}"
       :placeholder="placeholder"
       :readonly="true"
       :required="cal_required"
@@ -23,12 +23,13 @@
 <script>
 import formatDate from "../utils/formatdate";
 export default {
-  props: ["label", "placeholder", "datetype", "required", "patten"],
+  props: ["label", "placeholder", "datetype", "required", "patten", "readonly"],
   data() {
     return {
       show: false,
       temp: "",
-      time: ""
+      time: "",
+      isReadonly: this.readonly
     };
   },
   methods: {

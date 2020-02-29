@@ -36,6 +36,14 @@
   </div>
 </template>
 <script>
+let titleMap = new Map([
+  ["yewu", "业务受理"],
+  ["kancha", "现场勘查"],
+  ["yanshou", "竣工验收"],
+  ["czbiao", "装(拆)表管理"],
+  ["tsdian", "停(送)电管理"]
+]);
+let arr = ["yewu", "kancha", "yanshou", "czbiao", "tsdian"];
 export default {
   data() {
     return {
@@ -49,6 +57,20 @@ export default {
       this.title = title;
     }
   },
-  computed: {}
+  computed: {},
+  mounted() {
+    let a = arr.findIndex(x => x === this.$route.name);
+    if (a > 0) {
+      this.selected = this.$route.name;
+      this.title = titleMap.get(this.selected);
+    }
+  },
+  updated() {
+    let a = arr.findIndex(x => x === this.$route.name);
+    if (a > 0) {
+      this.selected = this.$route.name;
+      this.title = titleMap.get(this.selected);
+    }
+  }
 };
 </script>

@@ -3,7 +3,7 @@
     <van-field
       v-model="value"
       :readonly="true"
-      @click="()=>{this.show = true}"
+      @click="()=>{this.show = !isReadonly}"
       :label="label"
       :placeholder="placeholder"
       :required="cal_isRequired"
@@ -21,13 +21,14 @@
 </template>
 <script>
 export default {
-  props: ["columns", "label", "placeholder", "required"],
+  props: ["columns", "label", "placeholder", "required", "readonly"],
   data() {
     return {
       value: "",
       key: "",
       show: false,
-      isRequired: this.required
+      isRequired: this.required,
+      isReadonly: this.readonly
     };
   },
   methods: {

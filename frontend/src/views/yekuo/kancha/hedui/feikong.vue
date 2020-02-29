@@ -75,8 +75,6 @@
     />
     <div class="btn-group">
       <van-button type="primary" block :square="true">保存</van-button>
-      <div class="btn-d"></div>
-      <van-button type="default" block @click="()=>{this.$router.go(-1)}" :square="true">返回</van-button>
     </div>
     <van-popup v-model="showYCFK" position="bottom">
       <van-picker

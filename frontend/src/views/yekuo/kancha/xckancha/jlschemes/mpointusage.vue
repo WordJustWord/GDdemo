@@ -1,14 +1,7 @@
 <template>
   <div class="m-point-usage">
-    <div class="btn-group btn-hor-flex">
-      <van-button
-        type="default"
-        size="small"
-        :square="true"
-        @click="()=>{this.$router.go(-1)}"
-        icon="arrow-left"
-      >返回</van-button>
-      <van-button type="info" size="small" :square="true" to="/usagedetail" icon="plus">新增</van-button>
+    <div class="btn-group">
+      <van-button type="info" block size="small" :square="true" to="/usagedetail" icon="plus">新增</van-button>
     </div>
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
       <van-cell

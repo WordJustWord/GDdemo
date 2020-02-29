@@ -7,8 +7,5 @@ export const saveApplicationInfo = async (id, data) => {
 }
 
 export const getApplicationInfo = async (id) => {
-    const res = await http.fetchGet("/api/ApplicationInfo/" + id, null);
-    if (res.status === 200) {
-        return res;
-    }
+    return await http.fetchGet("/api/ApplicationInfo/" + id, null);
 }

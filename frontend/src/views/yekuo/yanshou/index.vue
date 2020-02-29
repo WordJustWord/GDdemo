@@ -10,6 +10,7 @@
       <van-tab title="运行准备" to="/yxzhunbei"></van-tab>
       <van-tab title="竣工检查" to="/jgyanshou"></van-tab>
       <van-tab title="生成表单"></van-tab>
+      <van-tab title="结果确认" to="/ysconfirm"></van-tab>
     </van-tabs>
     <router-view></router-view>
   </div>

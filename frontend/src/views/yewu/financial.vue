@@ -35,8 +35,6 @@
     <van-field v-model="data.comments" type="textarea" rows="4" label="备注" placeholder="请输入备注" />
     <div class="btn-group">
       <van-button type="primary" block :square="true">保存</van-button>
-      <div class="btn-d"></div>
-      <van-button type="default" block @click="()=>{this.$router.go(-1)}" :square="true">返回</van-button>
     </div>
     <van-popup v-model="showDFTZFS" position="bottom">
       <van-picker

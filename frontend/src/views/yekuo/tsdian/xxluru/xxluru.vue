@@ -31,6 +31,7 @@
             :title="'设备标识：'+item.sbbz"
             :value="'名称：'+item.name"
             :is-link="true"
+            :to="'/xxdevicemenu/'+item.id"
           >
             <template class="list-label" slot="label">
               <p>设备类型：{{item.sblx}}</p>

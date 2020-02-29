@@ -168,6 +168,7 @@ export default {
       voltageCols: voltageCols,
       readonly: false,
       loading: false,
+      isDataOk: false,
       data: {
         id: "",
         appNum: "",
@@ -226,10 +227,14 @@ export default {
       this.showVoltage = false;
     },
     onSave() {
-      this.loading = true;
-      saveApplicationInfo(this.$route.params.id, this.data);
-      Toast.success("保存成功！");
-      this.loading = false;
+      if (this.isDataOk) {
+        this.loading = true;
+        saveApplicationInfo(this.$route.params.id, this.data);
+        Toast.success("保存成功！");
+        this.loading = false;
+      } else {
+        Toast.fail("网络异常！");
+      }
     },
     findText(columns, target) {
       return columns.filter(x => x.key == target);
@@ -237,46 +242,57 @@ export default {
   },
   created() {
     this.loading = true;
-    getApplicationInfo(this.$route.params.id).then(res => {
-      if (res.status === 200) {
-        if (res.data.code === 1) {
-          let dto = res.data.data;
-          this.readonly = true;
-          this.data.appNum = dto.appNum;
-          this.data.appDate = dto.appDate;
-          this.data.businessType = dto.businessType;
-          this.data.clientNum = dto.clientNum;
-          this.data.appType = dto.appType;
-          this.data.mode = this.findText(modeColumns, dto.appType)[0].text;
-          this.data.provideUnit = dto.provideUnit;
-          this.data.clientIdCardType = dto.clientIdCardType;
-          this.data.idcardtype = this.findText(
-            idTypeCols,
-            dto.clientIdCardType
-          )[0].text;
-          this.data.idCardOwner = dto.idCardOwner;
-          this.data.idCardNum = dto.idCardNum;
-          this.data.clientName = dto.clientName;
-          this.data.powerUseType = dto.powerUseType;
-          this.data.etype = this.findText(eTypeCols, dto.powerUseType)[0].text;
-          this.data.powerUseAddr = dto.powerUseAddr;
-          this.data.industryType = dto.industryType;
-          this.data.voltage = dto.voltage;
-          this.data.voltageVal = this.findText(
-            voltageCols,
-            dto.voltage
-          )[0].text;
-          this.data.originalVolume = dto.originalVolume;
-          this.data.afterChangePowerUseType = dto.afterChangePowerUseType;
-          this.data.cetype = this.findText(
-            ceTypeCols,
-            dto.afterChangePowerUseType
-          )[0].text;
-          this.data.comments = dto.comments;
-          this.loading = false;
+    getApplicationInfo(this.$route.params.id)
+      .then(res => {
+        if (res.status === 200) {
+          if (res.data.code === 1) {
+            let dto = res.data.data;
+            this.isDataOk = true;
+            this.readonly = true;
+            this.data.appNum = dto.appNum;
+            this.data.appDate = dto.appDate;
+            this.data.businessType = dto.businessType;
+            this.data.clientNum = dto.clientNum;
+            this.data.appType = dto.appType;
+            this.data.mode = this.findText(modeColumns, dto.appType)[0].text;
+            this.data.provideUnit = dto.provideUnit;
+            this.data.clientIdCardType = dto.clientIdCardType;
+            this.data.idcardtype = this.findText(
+              idTypeCols,
+              dto.clientIdCardType
+            )[0].text;
+            this.data.idCardOwner = dto.idCardOwner;
+            this.data.idCardNum = dto.idCardNum;
+            this.data.clientName = dto.clientName;
+            this.data.powerUseType = dto.powerUseType;
+            this.data.etype = this.findText(
+              eTypeCols,
+              dto.powerUseType
+            )[0].text;
+            this.data.powerUseAddr = dto.powerUseAddr;
+            this.data.industryType = dto.industryType;
+            this.data.voltage = dto.voltage;
+            this.data.voltageVal = this.findText(
+              voltageCols,
+              dto.voltage
+            )[0].text;
+            this.data.originalVolume = dto.originalVolume;
+            this.data.afterChangePowerUseType = dto.afterChangePowerUseType;
+            this.data.cetype = this.findText(
+              ceTypeCols,
+              dto.afterChangePowerUseType
+            )[0].text;
+            this.data.comments = dto.comments;
+            this.loading = false;
+          }
+        } else {
+          console.log(11);
         }
-      }
-    });
+      })
+      .catch(e => {
+        Toast.fail("网络异常！");
+        this.loading = false;
+      });
   }
 };
 </script>
