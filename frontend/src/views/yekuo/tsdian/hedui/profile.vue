@@ -1,57 +1,63 @@
 <template>
   <div class="profile">
-    <van-field v-model="data.num" label="申请编号" placeholder="请输入申请编号" />
+    <van-field v-model="data.num" :readonly="true" label="申请编号" placeholder="请输入申请编号" />
     <van-field
       v-model="data.ctime"
       label="受理日期"
       @click="()=>{
-      this.showCtime = true}"
+      this.showCtime = false}"
       placeholder="点击选择受理日期"
       :readonly="true"
       required
     />
-    <van-field v-model="data.worktype" required label="业务类型" placeholder="请输入业务类型" />
-    <van-field v-model="data.usernum" required label="用户编号" placeholder="请输入用户编号" />
+    <van-field
+      v-model="data.worktype"
+      :readonly="true"
+      required
+      label="业务类型"
+      placeholder="请输入业务类型"
+    />
+    <van-field v-model="data.usernum" :readonly="true" required label="用户编号" placeholder="请输入用户编号" />
     <van-field
       v-model="data.mode"
       label="申请方式"
-      @click="()=>{this.showMode = true;}"
+      @click="()=>{this.showMode = false;}"
       placeholder="选择申请方式"
       :readonly="true"
       required
     />
-    <van-field v-model="data.unit" required label="供电单位" placeholder="请输入供电单位" />
+    <van-field v-model="data.unit" :readonly="true" required label="供电单位" placeholder="请输入供电单位" />
     <van-field
       v-model="data.idcardtype"
       label="证件类型"
-      @click="()=>{this.showIdCardType = true}"
+      @click="()=>{this.showIdCardType = false}"
       placeholder="请选择证件类型"
       :readonly="true"
     />
-    <van-field v-model="data.realname" label="证件持有人姓名" placeholder="请输入证件持有人姓名" />
-    <van-field v-model="data.idnum" label="证件号码" placeholder="请输入证件号码" />
-    <van-field v-model="data.username" label="用户名称" placeholder="请输入用户名称" />
+    <van-field v-model="data.realname" :readonly="true" label="证件持有人姓名" placeholder="请输入证件持有人姓名" />
+    <van-field v-model="data.idnum" :readonly="true" label="证件号码" placeholder="请输入证件号码" />
+    <van-field v-model="data.username" :readonly="true" label="用户名称" placeholder="请输入用户名称" />
     <van-field
       v-model="data.etype"
       label="用电类别"
-      @click="()=>{this.showEType = true}"
+      @click="()=>{this.showEType = false}"
       placeholder="请选择用电类别"
       :readonly="true"
     />
-    <van-field v-model="data.eaddr" label="用电地址" placeholder="请输入用电地址" />
-    <van-field v-model="data.wtype" label="行业分类" placeholder="请输入行业分类" />
+    <van-field v-model="data.eaddr" :readonly="true" label="用电地址" placeholder="请输入用电地址" />
+    <van-field v-model="data.wtype" :readonly="true" label="行业分类" placeholder="请输入行业分类" />
     <van-field
       v-model="data.voltage"
-      @click="()=>{this.showVoltage = true}"
+      @click="()=>{this.showVoltage = false}"
       label="供电电压"
       placeholder="请选择供电电压"
       :readonly="true"
     />
-    <van-field v-model="data.original" label="原有合同量" placeholder="请输入原有合同量kVA" />
+    <van-field v-model="data.original" :readonly="true" label="原有合同量" placeholder="请输入原有合同量kVA" />
     <van-field
       v-model="data.cetype"
       label="改类后用电类别"
-      @click="()=>{this.showCetype = true}"
+      @click="()=>{this.showCetype = false}"
       placeholder="请选择改类后用电类别"
       :readonly="true"
       required
@@ -63,17 +69,16 @@
       rows="4"
       label="申请备注"
       placeholder="请输入申请备注"
+      :readonly="true"
     />
     <van-cell-group>
       <van-cell title="拍照上传" />
     </van-cell-group>
-    <van-uploader />
-    <div class="btn-group">
-      <van-button type="primary" block :square="true">保存</van-button>
-    </div>
+    <van-uploader disabled />
     <van-popup v-model="showCtime" position="bottom">
       <van-datetime-picker
         v-model="tempCtime"
+        :readonly="true"
         type="date"
         @confirm="confirmCtime"
         @cancel="()=>{this.showCtime = false;}"
@@ -83,6 +88,7 @@
     <van-popup v-model="showMode" position="bottom">
       <van-picker
         :columns="modeColumns"
+        :readonly="true"
         @confirm="onModeConfirm"
         @cancel="()=>{this.showMode = false}"
         show-toolbar
@@ -92,6 +98,7 @@
     <van-popup v-model="showIdCardType" position="bottom">
       <van-picker
         :columns="idTypeCols"
+        :readonly="true"
         @confirm="onidTypeConfirm"
         @cancel="()=>{this.showIdCardType = false}"
         show-toolbar
@@ -101,6 +108,7 @@
     <van-popup v-model="showEType" position="bottom">
       <van-picker
         :columns="eTypeCols"
+        :readonly="true"
         @confirm="onETypeConfirm"
         @cancel="()=>{this.showEType = false}"
         show-toolbar
@@ -110,6 +118,7 @@
     <van-popup v-model="showCetype" position="bottom">
       <van-picker
         :columns="ceTypeCols"
+        :readonly="true"
         @confirm="onCeTypeConfirm"
         @cancel="()=>{this.showCetype = false}"
         show-toolbar
@@ -119,6 +128,7 @@
     <van-popup v-model="showVoltage" position="bottom">
       <van-picker
         :columns="voltageCols"
+        :readonly="true"
         @confirm="onVoltageConfirm"
         @cancel="()=>{this.showVoltage = false}"
         show-toolbar

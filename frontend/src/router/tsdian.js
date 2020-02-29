@@ -7,6 +7,10 @@ import TsdXxluru from "../views/yekuo/tsdian/xxluru/xxluru";
 import TsdSdhjiancha from "../views/yekuo/tsdian/sdhjiancha/sdhjiancha";
 import Tsdconfirm from "../views/yekuo/tsdian/confirm";
 
+import Contact from "../views/yekuo/tsdian/hedui/contact";
+import Financial from "../views/yekuo/tsdian/hedui/financial";
+import ContactDetail from "../views/yekuo/tsdian/hedui/contactdetail";
+
 
 import SdDeviceMenu from "../views/yekuo/tsdian/hedui/sddeviceinfo/sddevicemenu";
 import DeviceInfo from "../views/yekuo/tsdian/hedui/sddeviceinfo/deviceinfo";
@@ -84,6 +88,24 @@ const router = [
                 path: '/tsdnameplate',
                 name: 'tsdnameplate',
                 component: Nameplate,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdcontact/:id',
+                name: 'tsdcontact',
+                component: Contact,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdfinancial/:id',
+                name: 'tsdfinancial',
+                component: Financial,
+                meta: { requireAuth: true }
+            },
+            {
+                path: '/tsdcontactdetail/:id',
+                name: 'tsdcontactdetail',
+                component: ContactDetail,
                 meta: { requireAuth: true }
             },
         ]

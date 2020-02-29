@@ -1,8 +1,5 @@
 <template>
-  <div class="czb-contact">
-    <div class="btn-group btn-hor-flex">
-      <van-button type="info" block size="small" icon="plus">新增</van-button>
-    </div>
+  <div class="hedui-contact">
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
       <van-cell
         v-for="item in contacts"
@@ -10,6 +7,7 @@
         :title="'姓名：'+item.name"
         :value="'电话：'+item.phone"
         :is-link="true"
+        :to="'/tsdcontactdetail/'+item.id"
       >
         <template class="list-label" slot="label">
           <p>类型：{{item.type == 1?"电气联系人":"其他联系人"}}</p>
