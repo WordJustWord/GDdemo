@@ -8,6 +8,7 @@ import com.pigmo.gddemo.dto.ApplyInfoDto;
 import com.pigmo.gddemo.dto.InternalDataDto;
 import com.pigmo.gddemo.entities.ApplicationEntity;
 import com.pigmo.gddemo.entities.ClientEntity;
+import com.pigmo.gddemo.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -134,6 +135,11 @@ public class SqxinxiService implements Sqxinxi {
         dto.setAfterChangePowerUseType(applicationEntity.getAfterPowerType());
         dto.setComments(applicationEntity.getComments());
         return dto;
+    }
+
+    @Override
+    public int approve(ApplicationEntity app, UserEntity user){
+        return 0;
     }
 
     private String dateToString(Date date) {

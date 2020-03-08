@@ -6,6 +6,7 @@ import com.pigmo.gddemo.apis.repository.ClientRepository;
 import com.pigmo.gddemo.dto.ApplyInfoDto;
 import com.pigmo.gddemo.entities.ApplicationEntity;
 import com.pigmo.gddemo.entities.ClientEntity;
+import com.pigmo.gddemo.entities.UserEntity;
 import com.pigmo.gddemo.services.xckancha.hedui.SqxinxiService;
 import org.junit.After;
 import org.junit.Assert;
@@ -19,6 +20,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.websocket.Endpoint;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -30,6 +32,7 @@ public class ApplicationInfoServiceTest {
 
     private ApplicationEntity applicationEntity;
     private ClientEntity clientEntity;
+    private UserEntity userEntity;
 
     @InjectMocks
     private SqxinxiService sqxinxiService;
@@ -62,6 +65,27 @@ public class ApplicationInfoServiceTest {
         Mockito.verify(repository,Mockito.times(1)).findById(Mockito.anyLong());
         Mockito.verify(repository,Mockito.times(1)).save(Mockito.any(ApplicationEntity.class));
         Mockito.verify(clientRepository,Mockito.times(1)).save(Mockito.any(ClientEntity.class));
+    }
+
+    @Test
+    public void testApproveFailed(){
+        int approve = sqxinxiService.approve(applicationEntity, userEntity);
+        Assert.assertNotNull(approve);
+        Assert.assertEquals(0,approve);
+//        ApplyInfoDto dto = sqxinxiService.getApplicationInfo(1l);
+//        Assert.assertEquals(3,dto.getStatus().intValue());
+//        Assert.assertEquals("数据不完整，审核不通过",dto.getApproveMsg());
+    }
+
+    @Test
+    public void testApproveSuccess(){
+        int approve = sqxinxiService.approve(applicationEntity, userEntity);
+        Assert.assertNotNull(approve);
+        Assert.assertEquals(0,approve);
+//        ApplyInfoDto dto = sqxinxiService.getApplicationInfo(1l);
+//        Assert.assertEquals(2,dto.getStatus().intValue());
+//        Assert.assertEquals("审核通过",dto.getApproveMsg());
+//        Assert.assertEquals(2,dto.getCurrentLink().intValue());
     }
 
     @After

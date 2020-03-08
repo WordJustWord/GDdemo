@@ -84,4 +84,17 @@ public class ApplyInfoDto implements Serializable {
      * 申请备注
      */
     private String comments;
+    /**
+     * 审核状态
+     */
+    private Integer status;
+    /**
+     * 审核消息
+     */
+    private String  approveMsg;
+
+    /**
+     * 当前环节
+     */
+    private Integer currentLink;
 }

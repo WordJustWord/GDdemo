@@ -44,4 +44,8 @@ public class ApplicationEntity {
     private String comments;
     @Column(name = "actived")
     private Integer actived;
+    @Transient
+    private Integer status;
+    @Transient
+    private String approveMsg;
 }
